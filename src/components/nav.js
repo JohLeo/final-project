@@ -13,5 +13,5 @@ export const Nav = () => {
 // STYLING
 
 export const P = styled.p`
-background-color: blue;
+background-color: green;
 `

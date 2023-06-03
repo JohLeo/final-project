@@ -7,9 +7,9 @@ import StartPage from 'components/StartPage';
 export const App = () => {
   return (
     <div>
-      <StartPage />
       <Nav />
       <Search />
+      <StartPage />
       <Footer />
     </div>
   );
