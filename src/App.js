@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import StartPage from 'components/StartPage';
 
 export const App = () => {
   return (
     <div>
-      Find me in src/app.js!
+      <StartPage />
     </div>
-  )
-}
+  );
+};
