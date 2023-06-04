@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 export const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -29,14 +30,29 @@ export const Search = () => {
   };
 
   return (
-    <Form onSubmit={handleSearchSubmit}>
-      <Input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={handleSearchChange} />
-      <Button type="submit">Search</Button>
-    </Form>
+    <div>
+      <Form onSubmit={handleSearchSubmit}>
+        <Input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={handleSearchChange} />
+        <Button type="submit">Search</Button>
+      </Form>
+
+      {/* Display search results */}
+      {searchResults.length > 0 && (
+        <ResultsContainer>
+          <h2>Search Results:</h2>
+          <ul>
+            {searchResults.map((result) => (
+              // eslint-disable-next-line no-underscore-dangle
+              <li key={result._id}>{result.description}</li>
+            ))}
+          </ul>
+        </ResultsContainer>
+      )}
+    </div>
   );
 };
 
@@ -66,5 +82,22 @@ const Button = styled.button`
 
   &:hover {
     background-color: #0056b3;
+  }
+`;
+
+const ResultsContainer = styled.div`
+  margin-top: 20px;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 5px;
   }
 `;
