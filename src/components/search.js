@@ -17,7 +17,7 @@ export const Search = () => {
 
     // PERFORM THE SEARCH WITH THE SEARCHTERM
     console.log('Performing search with:', searchTerm);
-    fetch(`https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties?city=${searchTerm}`)
+    fetch(`https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties?location=${searchTerm}`)
       .then((response) => response.json())
       .then((data) => {
       // PROCESS THE SEARCH RESULTS
