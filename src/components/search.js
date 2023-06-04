@@ -23,6 +23,11 @@ export const Search = () => {
       .then((data) => {
       // PROCESS THE SEARCH RESULTS
         console.log('Search results:', data);
+        const modifiedData = data.map((result) => ({
+          id: result.id,
+          description: result.description
+        }));
+        setSearchResults(modifiedData);
       })
       .catch((error) => {
         console.error('Error performing search:', error);
