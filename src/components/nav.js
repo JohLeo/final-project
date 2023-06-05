@@ -26,7 +26,6 @@ const Navbar = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-
 `;
 
 const Logo = styled.div`
