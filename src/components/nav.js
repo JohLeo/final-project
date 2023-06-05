@@ -25,8 +25,8 @@ const Navbar = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
-  background-color: #f0f0f0;
+  padding: 15px;
+
 `;
 
 const Logo = styled.div`
