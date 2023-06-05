@@ -52,7 +52,7 @@ export const Search = () => {
           <ul>
             {searchResults.map((result) => (
               // eslint-disable-next-line no-underscore-dangle
-              <li key={result._id}>{result.description}</li>
+              <li key={result.id}>{result.description}</li>
             ))}
           </ul>
         </ResultsContainer>

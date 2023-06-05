@@ -32,13 +32,13 @@ const Navbar = styled.nav`
 const Logo = styled.div`
   font-size: 20px;
   font-weight: bold;
-  margin-left: 1rem; /* Adjust margin for logo positioning */
+  margin-left: 1rem; 
 `;
 
 const Links = styled.ul`
   display: flex;
   list-style: none;
-  margin-right: auto; /* Moves the links to the left */
+  margin-right: auto; 
 
   li {
     margin-right: 10px;
@@ -47,5 +47,9 @@ const Links = styled.ul`
       text-decoration: none;
       color: #000;
     }
+  }
+
+  @media (max-width: 768px) {
+    display: none; 
   }
 `;
