@@ -30,15 +30,15 @@ const StartPage = () => {
         {propertyData.map((item) => (
           <PropertyCard key={item.id}>
             <p>
-              {item.address.city}<br />
               {item.address.street} {item.address.streetNumber}<br />
+              {item.address.postalCode} {item.address.city}<br />
+              {item.price} {item.squareMeters}<br />
             </p>
             <p>
               {item.category}<br />
               {item.description}<br />
             </p>
             <p>
-              {item.price}<br />
               {item.realtor}<br />
             </p>
           </PropertyCard>
