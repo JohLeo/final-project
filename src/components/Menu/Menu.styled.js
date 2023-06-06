@@ -19,6 +19,10 @@ export const StyledMenu = styled.nav`
     width: 100%;
   }
 
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 40%; 
+  }
+
   a {
     font-size: 2rem;
     text-transform: uppercase;
@@ -30,6 +34,11 @@ export const StyledMenu = styled.nav`
     transition: color 0.3s linear;
     
     @media (max-width: 768px) {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
       font-size: 1.5rem;
       text-align: center;
     }
