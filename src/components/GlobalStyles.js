@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   @media only screen and (max-width: 768px) { 
@@ -31,3 +31,8 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export default GlobalStyles;
+
+export const ContainerCenter = styled.div`
+  display: flex;
+  justify-content: center;
+`

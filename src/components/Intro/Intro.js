@@ -1,13 +1,18 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { Nav } from 'components/nav';
+import { ContainerCenter } from 'components/GlobalStyles'
 
 export const IntroPage = () => {
   return (
     <IntroBg>
-      <IntroImage
-        src="https://i.postimg.cc/cLngP2Xc/apartments.png"
-        alt="Apartments"
-        ariaLabel="Find your new apartment" />
+      <Nav />
+      <ContainerCenter>
+        <IntroImage
+          src="https://i.postimg.cc/cLngP2Xc/apartments.png"
+          alt="Apartments"
+          ariaLabel="Find your new apartment" />
+      </ContainerCenter>
     </IntroBg>
   )
 };
@@ -21,8 +26,6 @@ const BgColors = keyframes`
 `;
 
 const IntroBg = styled.div`
-display: flex;
-justify-content: center;
 background-color: #0D3A43;
 animation: ${BgColors} 30s linear infinite;
 `
