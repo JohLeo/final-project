@@ -6,6 +6,7 @@ export const StyledMenu = styled.nav`
   justify-content: center;
   background: white;
   text-align: left;
+  height: 100vh;
   padding: 2rem;
   position: absolute;
   top: 0;
@@ -52,6 +53,7 @@ export const StyledMenu = styled.nav`
     @media (min-width: 769px) and (max-width: 1024px) {
       font-size: 1.5rem;
       text-align: center;
+      height: 100vh;
     }
 
     &:hover {
