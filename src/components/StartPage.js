@@ -1,6 +1,8 @@
 // IMPORT MODULES
 
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { Search } from './search';
 
 // MAKE CONST OF API
 
@@ -22,27 +24,39 @@ const StartPage = () => {
 
   // RENDER THE COMPONENT
   return (
-    <div>
-      {propertyData.map((item) => (
-        <div key={item.id}>
-          <p>
-            {item.address.city}<br />
-            {item.address.street} {item.address.streetNumber}<br />
-          </p>
-          <p>
-            {item.category}<br />
-            {item.description}<br />
-          </p>
-          <p>
-            {item.price}<br />
-            {item.realtor}<br />
-          </p>
-        </div>
-      ))}
-    </div>
+    <>
+      <Search />
+      <SearchContainer>
+        {propertyData.map((item) => (
+          <PropertyCard key={item.id}>
+            <p>
+              {item.address.city}<br />
+              {item.address.street} {item.address.streetNumber}<br />
+            </p>
+            <p>
+              {item.category}<br />
+              {item.description}<br />
+            </p>
+            <p>
+              {item.price}<br />
+              {item.realtor}<br />
+            </p>
+          </PropertyCard>
+        ))}
+      </SearchContainer>
+    </>
   );
 };
 
 export default StartPage;
 
 // STYLING
+const SearchContainer = styled.div`
+border-style: solid; 
+  `;
+
+const PropertyCard = styled.div`
+  border: 1px solid black;
+  padding: 16px;
+  margin-bottom: 16px;
+`;
