@@ -5,7 +5,6 @@ export const StyledMenu = styled.nav`
   flex-direction: column;
   justify-content: center;
   background: white;
-  height: 100vh;
   text-align: left;
   padding: 2rem;
   position: absolute;
@@ -17,6 +16,7 @@ export const StyledMenu = styled.nav`
   
   @media (max-width: 768px) {
     width: 100%;
+    height: 100vh;
     padding: 0 0 0 2rem;
     
 
@@ -27,7 +27,7 @@ export const StyledMenu = styled.nav`
 
   @media (min-width: 769px) and (max-width: 1024px) {
     width: 40%; 
-    height: 80%;
+    height: 100vh;
     
     a {
       text-align: center;
