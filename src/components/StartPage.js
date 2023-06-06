@@ -32,7 +32,7 @@ const StartPage = () => {
             <p>
               {item.address.street} {item.address.streetNumber}<br />
               {item.address.postalCode} {item.address.city}<br />
-              {item.price} {item.squareMeters}<br />
+              {item.price} {item.currency} {item.squareMeters} {item.unitOfArea}<br />
             </p>
             <p>
               {item.category}<br />
