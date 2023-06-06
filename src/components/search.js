@@ -2,6 +2,7 @@
 // IMPORT MODULES
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Button from './lib/Button'
 
 // COMPONENT
 
@@ -42,7 +43,9 @@ export const Search = () => {
           placeholder="Search..."
           value={searchTerm}
           onChange={handleSearchChange} />
-        <Button type="submit">Search</Button>
+        <Button
+          type="submit"
+          text="Search" />
       </Form>
 
       {/* Display search results */}
@@ -70,24 +73,10 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  padding: 10px;
+  padding: 8px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-`;
-
-const Button = styled.button`
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0056b3;
-  }
 `;
 
 const ResultsContainer = styled.div`
