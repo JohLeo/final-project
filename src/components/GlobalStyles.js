@@ -32,6 +32,7 @@ const GlobalStyles = createGlobalStyle`
 
 export default GlobalStyles;
 
+// Basic centered container
 export const ContainerCenter = styled.div`
   display: flex;
   justify-content: center;
