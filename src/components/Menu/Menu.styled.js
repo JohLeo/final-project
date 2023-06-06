@@ -5,8 +5,8 @@ export const StyledMenu = styled.nav`
   flex-direction: column;
   justify-content: center;
   background: white;
-  height: 100vh;
   text-align: left;
+  height: 100vh;
   padding: 2rem;
   position: absolute;
   top: 0;
@@ -17,10 +17,22 @@ export const StyledMenu = styled.nav`
   
   @media (max-width: 768px) {
     width: 100%;
+    height: 100vh;
+    padding: 0 0 0 2rem;
+    
+
+    a {
+      text-align: center;
+    }
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
     width: 40%; 
+    height: 100vh;
+    
+    a {
+      text-align: center;
+    }
   }
 
   a {
