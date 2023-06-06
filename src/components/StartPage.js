@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Search } from './search';
+import { Search } from './Search'
 
 // MAKE CONST OF API
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Nav } from 'components/nav';
-import { Footer } from 'components/footer';
+import { Nav } from 'components/Navigation';
+import { Footer } from 'components/Footer';
 import StartPage from 'components/StartPage';
 import { LocationSection } from 'components/LocationLink';
 
