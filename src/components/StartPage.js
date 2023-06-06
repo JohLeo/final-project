@@ -1,8 +1,8 @@
 // IMPORT MODULES
-
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Search } from './Search'
+import { Search } from './search';
+import { IntroPage } from './Intro/Intro'
 
 // MAKE CONST OF API
 
@@ -25,6 +25,7 @@ const StartPage = () => {
   // RENDER THE COMPONENT
   return (
     <>
+      <IntroPage />
       <Search />
       <SearchContainer>
         {propertyData.map((item) => (
