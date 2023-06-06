@@ -27,6 +27,11 @@ export const StyledMenu = styled.nav`
 
   @media (min-width: 769px) and (max-width: 1024px) {
     width: 40%; 
+    height: 80%;
+    
+    a {
+      text-align: center;
+    }
   }
 
   a {
