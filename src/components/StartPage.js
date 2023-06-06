@@ -53,7 +53,7 @@ export default StartPage;
 // STYLING
 const SearchContainer = styled.div`
 border-style: solid; 
-max-width: 90%;
+max-width: 100%;
   `;
 
 const PropertyCard = styled.div`
