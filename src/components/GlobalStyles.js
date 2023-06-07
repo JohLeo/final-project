@@ -37,3 +37,17 @@ export const ContainerCenter = styled.div`
   display: flex;
   justify-content: center;
 `
+
+// Basic column container
+export const ContainerColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+// Basic rew container
+export const ContainerRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`
