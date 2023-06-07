@@ -1,14 +1,16 @@
 // IMPORT MODULES
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { LocationSection } from 'components/LocationLink';
 import { Search } from './search';
-import { IntroPage } from './Intro/Intro'
+import { IntroPage } from './Intro/Intro';
+import { About } from './About/AboutUs'
 
 // MAKE CONST OF API
 
 const API = 'https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties';
 
-const StartPage = () => {
+export const StartPage = () => {
   // DEFINE STATE VARIABLE TO STORE PROPERTY DATA
   const [propertyData, setPropertyData] = useState([]);
 
@@ -26,6 +28,8 @@ const StartPage = () => {
   return (
     <>
       <IntroPage />
+      <About />
+      <LocationSection />
       <Search />
       <SearchContainer>
         {propertyData.map((item) => (
@@ -48,8 +52,6 @@ const StartPage = () => {
     </>
   );
 };
-
-export default StartPage;
 
 // STYLING
 const SearchContainer = styled.div`

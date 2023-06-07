@@ -1,15 +1,22 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Footer } from 'components/footer';
-import StartPage from 'components/StartPage';
-import { LocationSection } from 'components/LocationLink';
-import { About } from './components/About/AboutUs'
+import { Temporary } from 'components/Temporary'
+import { AboutUs } from 'components/About/AboutUsClicked'
+import { StartPage } from './components/StartPage';
 
 export const App = () => {
   return (
     <div>
-      <StartPage />
-      <About />
-      <LocationSection />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<StartPage />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/forsale" element={<Temporary />} />
+          <Route path="/object" element={<Temporary />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </BrowserRouter>
       <Footer />
     </div>
   );

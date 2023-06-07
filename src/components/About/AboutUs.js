@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { Link } from 'react-router-dom';
 import { ContainerColumn } from '../GlobalStyles';
 import Button from '../lib/Button'
 
@@ -25,9 +26,11 @@ export const About = () => {
             Begin your journey towards finding your dream home today. <br /> <br />
           </UsText>
           <AboutBtn>
-            <Button
-              type="submit"
-              text="Read more" />
+            <Link to="/aboutus">
+              <Button
+                type="submit"
+                text="Read more" />
+            </Link>
             <Button
               type="submit"
               text="Contact us" />
