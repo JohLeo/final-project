@@ -2,7 +2,7 @@ import React from 'react';
 import { Footer } from 'components/footer';
 import StartPage from 'components/StartPage';
 import { LocationSection } from 'components/LocationLink';
-import { About } from './components/AboutUs'
+import { About } from './components/About/AboutUs'
 
 export const App = () => {
   return (
