@@ -1,5 +1,5 @@
 import React from 'react';
-import { Footer } from 'components/footer';
+import { Footer } from 'components/Footer';
 import StartPage from 'components/StartPage';
 import { LocationSection } from 'components/LocationLink';
 import { About } from './components/About/AboutUs'
