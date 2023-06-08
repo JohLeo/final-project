@@ -63,6 +63,7 @@ export const Links = styled.ul`
 
     a {
       text-decoration: none;
+      font-family: 'Karla', sans-serif;
       color: #000;
 
       &:hover {
