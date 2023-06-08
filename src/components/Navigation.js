@@ -6,6 +6,7 @@ import Menu from './Menu/Menu';
 export const Nav = () => {
   const [open, setOpen] = useState(false);
   return (
+
     <Navbar>
       <Logo>Logo</Logo>
       <Links>
@@ -18,6 +19,7 @@ export const Nav = () => {
         <Menu open={open} setOpen={setOpen} />
       </div>
     </Navbar>
+
   );
 };
 

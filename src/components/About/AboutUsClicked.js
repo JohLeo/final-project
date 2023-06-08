@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 import { ContainerColumn, ContainerRow } from '../GlobalStyles';
 import { Realtor } from '../lib/Realtors';
 
-export const About = () => {
+export const AboutUs = () => {
   return (
     <BgAbout>
       <AboutRow>
