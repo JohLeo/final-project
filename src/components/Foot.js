@@ -1,9 +1,9 @@
 // IMPORT MODULES
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+// import { faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
 
 // COMPONENT
 export const Footer = () => {
@@ -17,10 +17,9 @@ export const Footer = () => {
           <li><a href="#">CONTACT</a></li>
         </Links>
         <SocialIcons>
-          <FontAwesomeIcon icon={faFacebook} style={{ fontSize: '1.6rem' }} />
+          {/* <FontAwesomeIcon icon={faFacebook} style={{ fontSize: '1.6rem' }} />
           <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '1.6rem' }} />
-          <FontAwesomeIcon icon={faEnvelopeOpen} style={{ fontSize: '1.6rem' }} />
-
+  <FontAwesomeIcon icon={faEnvelopeOpen} style={{ fontSize: '1.6rem' }} /> */}
         </SocialIcons>
       </RightContainer>
     </FooterContainer>

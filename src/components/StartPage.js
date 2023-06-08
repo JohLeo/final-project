@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { LocationSection } from 'components/LocationLink';
-import { Search } from './search';
+import { Search } from './SearchForm';
 import { IntroPage } from './Intro/Intro';
 import { About } from './About/AboutUs'
 
