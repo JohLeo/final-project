@@ -32,6 +32,7 @@ const Logo = styled.div`
   font-size: 20px;
   font-weight: bold;
   margin-left: 1rem; 
+  color: #fffaf2;
 `;
 
 const Links = styled.ul`
@@ -40,11 +41,13 @@ const Links = styled.ul`
   margin-right: auto; 
 
   li {
-    margin-right: 10px;
+    margin-right: 25px;
 
     a {
       text-decoration: none;
-      color: #000;
+      color: #fffaf2;
+      font-size: 23px;
+      font-weight: 700;
     }
   }
 
