@@ -9,17 +9,20 @@ import { faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
 export const Footer = () => {
   return (
     <FooterContainer>
-      <Logo>Logo</Logo>
-      <Center>
-        <FontAwesomeIcon icon={faFacebook} size="2x" />
-        <FontAwesomeIcon icon={faInstagram} size="2x" />
-        <FontAwesomeIcon icon={faEnvelopeOpen} size="2x" />
-      </Center>
-      <Links>
-        <li><a href="#">ABOUT US</a></li>
-        <li><a href="#">PRIVACY POLICY</a></li>
-        <li><a href="#">CONTACT</a></li>
-      </Links>
+      <Logo>LOGO</Logo>
+      <RightContainer>
+        <Links>
+          <li><a href="#">ABOUT US</a></li>
+          <li><a href="#">PRIVACY POLICY</a></li>
+          <li><a href="#">CONTACT</a></li>
+        </Links>
+        <SocialIcons>
+          <FontAwesomeIcon icon={faFacebook} style={{ fontSize: '1.6rem' }} />
+          <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '1.6rem' }} />
+          <FontAwesomeIcon icon={faEnvelopeOpen} style={{ fontSize: '1.6rem' }} />
+
+        </SocialIcons>
+      </RightContainer>
     </FooterContainer>
   );
 };
@@ -36,24 +39,29 @@ export const FooterContainer = styled.footer`
 
 export const Logo = styled.div`
   color: black;
-  font-size: 1rem; 
+  font-size: 2rem; 
   left: 0;
   margin: 0 0 0 10rem;
 `;
 
-export const Center = styled.div`
-display: flex; 
-justify-content: center;
+export const RightContainer = styled.div`
 gap: 1rem;
+margin-right: 1rem;
+flex-direction: column;
+align-items: flex-end;
 `
 
-const Links = styled.ul`
+export const Links = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
   list-style: none;
   margin: 0 10rem 0 0;
   gap: 1rem;
+
+  &:hover {
+    color: #989898};
+  }
 
   li {
     margin-right: 10px;
@@ -63,4 +71,12 @@ const Links = styled.ul`
       color: #000;
     }
   }
+`
+
+export const SocialIcons = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  right: 1rem;
+  margin: 1rem 0 0 2.5rem;
 `;
