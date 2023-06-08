@@ -31,17 +31,17 @@ const Navbar = styled.nav`
 const Logo = styled.div`
   font-size: 20px;
   font-weight: bold;
-  margin-left: 1rem; 
+  margin-left: 2rem; 
   color: #fffaf2;
 `;
 
 const Links = styled.ul`
   display: flex;
   list-style: none;
-  margin-right: auto; 
+  margin-left: auto; 
 
   li {
-    margin-right: 25px;
+    margin-right: 2rem;
 
     a {
       text-decoration: none;
