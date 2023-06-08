@@ -20,7 +20,6 @@ export const Footer = () => {
           <FontAwesomeIcon icon={faFacebook} style={{ fontSize: '1.6rem' }} />
           <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '1.6rem' }} />
           <FontAwesomeIcon icon={faEnvelopeOpen} style={{ fontSize: '1.6rem' }} />
-
         </SocialIcons>
       </RightContainer>
     </FooterContainer>
