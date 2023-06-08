@@ -59,19 +59,19 @@ export const Links = styled.ul`
   margin: 0 10rem 0 0;
   gap: 1rem;
 
-  &:hover {
-    color: #989898};
-  }
-
   li {
     margin-right: 10px;
 
     a {
       text-decoration: none;
       color: #000;
+
+      &:hover {
+        color: #989898;
+      }
     }
   }
-`
+`;
 
 export const SocialIcons = styled.div`
   display: flex;
