@@ -26,7 +26,17 @@ export const Search = () => {
         console.log('Search results:', data);
         const modifiedData = data.map((result) => ({
           id: result.id,
-          description: result.description
+          description: result.description,
+          category: result.category,
+          realtor: result.realtor,
+          price: result.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '),
+          currency: result.currency,
+          squareMeters: result.squareMeters,
+          unitOfArea: result.unitOfArea,
+          address: {
+            street: result.address.street,
+            streetNumber: result.address.streetNumber
+          }
         }));
         setSearchResults(modifiedData);
       })
@@ -54,8 +64,14 @@ export const Search = () => {
           <h2>Search Results:</h2>
           <ul>
             {searchResults.map((result) => (
-              // eslint-disable-next-line no-underscore-dangle
-              <li key={result.id}>{result.description}</li>
+              <ResultItem key={result.id}>
+                <Title>Description:</Title> {result.description}<br />
+                <Title>Category:</Title> {result.category}<br />
+                <Title>Street address:</Title> {result.address.street} {result.address.streetNumber}<br /><br />
+                <Title>Price:</Title> {result.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} {result.currency}<br />
+                <Title>Size:</Title> {result.squareMeters} {result.unitOfArea}<br />
+                <Title>Realtor:</Title> {result.realtor}<br />
+              </ResultItem>
             ))}
           </ul>
         </ResultsContainer>
@@ -94,4 +110,15 @@ const ResultsContainer = styled.div`
   li {
     margin-bottom: 5px;
   }
+`;
+
+const ResultItem = styled.li`
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
+const Title = styled.strong`
+  font-weight: bold;
 `;
