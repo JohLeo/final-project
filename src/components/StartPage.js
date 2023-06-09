@@ -1,7 +1,7 @@
 // IMPORT MODULES
 import React from 'react';
 import { LocationSection } from 'components/LocationLink';
-import { Search } from './search';
+import { Search } from './SearchForm';
 import { IntroPage } from './Intro/Intro';
 import { About } from './About/AboutUs'
 

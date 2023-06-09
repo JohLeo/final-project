@@ -45,7 +45,7 @@ export const AboutUs = () => {
 
       <ContainerRow>
         <UsH3>
-            Say hi our realtors
+            Hello Hi
         </UsH3>
         <Realtor
           src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
@@ -55,7 +55,7 @@ export const AboutUs = () => {
 
         <Realtor
           src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
-          alt="Sammy the pro"
+          alt="Sammy the proffessional"
           ariaLabel="Picture of Sammy"
           name="Sammy" />
 
