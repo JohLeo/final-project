@@ -4,10 +4,7 @@ import { Temporary } from 'components/Temporary'
 import { Nav } from 'components/Navigation';
 import { AboutUs } from 'components/About/AboutUsClicked';
 import { ForSale } from 'components/ForSale';
-<<<<<<< HEAD
 import { NotFound } from 'components/NotFound';
-=======
->>>>>>> 2e1f57f9f77ac29b5c3fc05b35d8c31585570738
 import { Footer } from './components/Foot';
 import { StartPage } from './components/StartPage';
 
