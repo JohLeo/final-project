@@ -18,7 +18,7 @@ export const ForSale = () => {
       .then((res) => res.json())
       .then((responseData) => {
         setPropertyData(responseData);
-        setIsLoading(false);
+        setTimeout(() => setIsLoading(false), 3000)
         console.log(responseData); // CONSOLE LOGGING THE JSON - WE CAN REMOVE THIS BEFORE DEPLOY
       });
   }, []);

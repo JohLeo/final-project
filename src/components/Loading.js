@@ -9,12 +9,6 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-
-  & > div {
-    width: 15vw; // Set the width of the Lottie animation to 15% of the viewport width
-    height: 15vh; // Set the height of the Lottie animation to 15% of the viewport height
-  }
-
   .lottie {
     margin: auto; // Center the Lottie animation within its container
   }
