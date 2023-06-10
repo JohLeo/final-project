@@ -1,18 +1,21 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { ContainerColumn, RowLeft, ColumnLeft } from '../GlobalStyles';
+import { RowLeft, ColumnLeft } from '../GlobalStyles';
 import { Realtor } from '../lib/Realtors';
 
 export const AboutUs = () => {
   return (
     <BgMore>
-      <AboutRow>
-        <ContainerColumn>
-          <UsH1>
+
+      <ColumnLeft>
+        <MoreImg
+          src="https://i.postimg.cc/BnqwFZXs/pexels-daniel-frank-1111766.jpg"
+          alt="Home estate" />
+        <H1>
             [Company Name] <br />
             where exceptional homes find their perfect match.
-          </UsH1>
-          <UsText>
+        </H1>
+        <UsText>
             We embarked on a journey driven by our passion for connecting
             individuals with their dream homes. We believe that finding the perfect living
             space is an essential part of crafting a fulfilling life.   <br /> <br />
@@ -34,16 +37,8 @@ export const AboutUs = () => {
             Please note that the properties showcased by [Company Name] are for
             illustrative purposes only. Contact us to explore the real estate options
             available to you.
-          </UsText>
-        </ContainerColumn>
+        </UsText>
 
-        <UsImage
-          src="https://i.postimg.cc/pXGJs0tR/pexels-gerritt-tisdale-903028.jpg"
-          alt="Home estate" />
-
-      </AboutRow>
-
-      <ColumnLeft>
         <UsH3>
             Our agents
         </UsH3>
@@ -78,11 +73,6 @@ const BgMore = styled.div`
 background-color: #E6E6E6;
 padding: 40px 28px 40px 28px;
 `
-const AboutRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`
 const UsText = styled.p`
  padding: 0 2rem 1rem 0;
  white-space: pre-wrap;
@@ -90,7 +80,7 @@ const UsText = styled.p`
  font-size: 14px;
  font-weight: 300;
 `
-const UsH1 = styled.h1`
+const H1 = styled.h1`
   padding: 0;
   margin: 40px 0 0;
   color: #414142;
@@ -98,16 +88,11 @@ const UsH1 = styled.h1`
   font-weight: 400;
 `
 
-const UsImage = styled.img`
+const MoreImg = styled.img`
   width: 100%;
   height: 100%;
-  max-width: 350px;
   margin: 10px;
   border: 20px solid white;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
 `;
 
 const UsH3 = styled.h3`
