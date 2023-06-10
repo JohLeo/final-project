@@ -4,26 +4,32 @@ import { Temporary } from 'components/Temporary'
 import { Nav } from 'components/Navigation';
 import { AboutUs } from 'components/About/AboutUsClicked';
 import { ForSale } from 'components/ForSale';
+import { NotFound } from 'components/NotFound';
+import { Contact } from 'components/Contact';
+import { PrivacyPolicy } from 'components/PrivacyPolicy';
 import { Footer } from './components/Foot';
 import { StartPage } from './components/StartPage';
 
 export const App = () => {
   return (
-    <div>
-      <Nav />
-      <BrowserRouter>
+    <BrowserRouter>
+      <div>
+        <Nav />
         <Routes>
           <Route path="/" element={<StartPage />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/forsale" element={<ForSale />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/object" element={<Temporary />} />
           <Route path="/houses" element={<Temporary />} />
           <Route path="/apartments" element={<Temporary />} />
           <Route path="/holidayhomes" element={<Temporary />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="*" element={<Navigate to="/404" replace />} />
+          <Route path="/404" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 };

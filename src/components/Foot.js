@@ -1,9 +1,10 @@
 // IMPORT MODULES
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
+import { Link } from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+// import { faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
 
 // COMPONENT
 export const Footer = () => {
@@ -12,14 +13,20 @@ export const Footer = () => {
       <Logo>LOGO</Logo>
       <RightContainer>
         <Links>
-          <li><a href="#">ABOUT US</a></li>
-          <li><a href="#">PRIVACY POLICY</a></li>
-          <li><a href="#">CONTACT</a></li>
+          <li>
+            <Link to="/aboutus">ABOUT US</Link>
+          </li>
+          <li>
+            <Link to="/privacypolicy">PRIVACY POLICY</Link>
+          </li>
+          <li>
+            <Link to="/contact">CONTACT</Link>
+          </li>
         </Links>
         <SocialIcons>
-          <FontAwesomeIcon icon={faFacebook} style={{ fontSize: '1.6rem' }} />
+          {/* <FontAwesomeIcon icon={faFacebook} style={{ fontSize: '1.6rem' }} />
           <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '1.6rem' }} />
-          <FontAwesomeIcon icon={faEnvelopeOpen} style={{ fontSize: '1.6rem' }} />
+  <FontAwesomeIcon icon={faEnvelopeOpen} style={{ fontSize: '1.6rem' }} /> */}
         </SocialIcons>
       </RightContainer>
     </FooterContainer>

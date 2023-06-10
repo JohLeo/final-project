@@ -31,9 +31,9 @@ export const About = () => {
                 type="submit"
                 text="Read more" />
             </Link>
-            <Button
-              type="submit"
-              text="Contact us" />
+            <ContactLink to="/contact">
+              <Button type="submit" text="Contact us" />
+            </ContactLink>
           </AboutBtn>
         </ContainerColumn>
 
@@ -90,4 +90,8 @@ const UsImage = styled.img`
   @media (max-width: 768px) {
     display: none;
   }
+`;
+
+const ContactLink = styled(Link)`
+  text-decoration: none;
 `;
