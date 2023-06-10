@@ -10,9 +10,11 @@ export const About = () => {
       <AboutRow>
         <ContainerColumn>
           <UsH1>
-            [Company Name] <br />
-            where exceptional homes find their perfect match.
+            Homeigo
           </UsH1>
+          <UsH3>
+            Where exceptional homes find their perfect match
+          </UsH3>
           <UsText>
             We embarked on a journey driven by our passion for connecting
             individuals with their dream homes. We believe that finding the perfect living
@@ -65,14 +67,20 @@ const AboutBtn = styled.div`
 
 const UsText = styled.p`
  padding: 0 28px;
- white-space: pre-wrap;
  color: #414142;
  font-size: 14px;
  font-weight: 300;
  max-width: 500px;
 `
 const UsH1 = styled.h1`
-  padding: 20px 28px;
+  padding: 20px 0 0 28px;
+  margin: 0;
+  color: #414142;
+  font-size: 30px;
+  font-weight: 500;
+`
+const UsH3 = styled.h1`
+  padding: 0 28px;
   margin: 0;
   color: #414142;
   font-size: 24px;
