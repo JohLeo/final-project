@@ -10,9 +10,9 @@ import { StartPage } from './components/StartPage';
 
 export const App = () => {
   return (
-    <div>
-      <Nav />
-      <BrowserRouter>
+    <BrowserRouter>
+      <div>
+        <Nav />
         <Routes>
           <Route path="/" element={<StartPage />} />
           <Route path="/aboutus" element={<AboutUs />} />
@@ -24,8 +24,8 @@ export const App = () => {
           <Route path="*" element={<Navigate to="/404" replace />} />
           <Route path="/404" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 };
