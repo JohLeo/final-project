@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
-import { ContainerColumn } from '../GlobalStyles';
+import { ColumnLeft } from '../GlobalStyles';
 import Button from '../lib/Button'
 
 export const About = () => {
   return (
     <BgAbout>
       <AboutRow>
-        <ContainerColumn>
+        <ColumnLeft>
           <UsH1>
             Homeigo
           </UsH1>
@@ -37,7 +37,7 @@ export const About = () => {
               type="submit"
               text="Contact us" />
           </AboutBtn>
-        </ContainerColumn>
+        </ColumnLeft>
 
         <UsImage
           src="https://i.postimg.cc/pXGJs0tR/pexels-gerritt-tisdale-903028.jpg"

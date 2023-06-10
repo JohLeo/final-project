@@ -44,10 +44,19 @@ export const ContainerColumn = styled.div`
   flex-direction: column;
   align-items: center;
 `
+export const ColumnLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 // Basic rew container
 export const ContainerRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+`
+
+export const RowLeft = styled.div`
+  display: flex;
+  flex-direction: row;
 `

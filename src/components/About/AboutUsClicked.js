@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { ContainerColumn, ContainerRow } from '../GlobalStyles';
+import { ContainerColumn, RowLeft, ColumnLeft } from '../GlobalStyles';
 import { Realtor } from '../lib/Realtors';
 
 export const AboutUs = () => {
   return (
-    <BgAbout>
+    <BgMore>
       <AboutRow>
         <ContainerColumn>
           <UsH1>
@@ -43,36 +43,40 @@ export const AboutUs = () => {
 
       </AboutRow>
 
-      <ContainerRow>
+      <ColumnLeft>
         <UsH3>
-            Hello Hi
+            Our agents
         </UsH3>
-        <Realtor
-          src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
-          alt="Hannah the Guru"
-          ariaLabel="Picture of Hannah"
-          name="Hannah" />
+        <RowLeft>
+          <Realtor
+            src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
+            alt="Hannah the Guru"
+            ariaLabel="Picture of Hannah"
+            name="Hannah" />
 
-        <Realtor
-          src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
-          alt="Sammy the proffessional"
-          ariaLabel="Picture of Sammy"
-          name="Sammy" />
+          <Realtor
+            src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
+            alt="Sammy the proffessional"
+            ariaLabel="Picture of Sammy"
+            name="Sammy" />
 
-        <Realtor
-          src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
-          alt="Johanna"
-          ariaLabel="Picture of Johanna"
-          name="Johanna" />
+          <Realtor
+            src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
+            alt="Johanna"
+            ariaLabel="Picture of Johanna"
+            name="Johanna" />
 
-      </ContainerRow>
-    </BgAbout>
+        </RowLeft>
+
+      </ColumnLeft>
+    </BgMore>
 
   )
 };
 
-const BgAbout = styled.div`
+const BgMore = styled.div`
 background-color: #E6E6E6;
+padding: 40px 28px 40px 28px;
 `
 const AboutRow = styled.div`
   display: flex;
@@ -80,14 +84,14 @@ const AboutRow = styled.div`
   align-items: center;
 `
 const UsText = styled.p`
- padding: 0 28px;
+ padding: 0 2rem 1rem 0;
  white-space: pre-wrap;
  color: #414142;
  font-size: 14px;
  font-weight: 300;
 `
 const UsH1 = styled.h1`
-  padding: 0 28px;
+  padding: 0;
   margin: 40px 0 0;
   color: #414142;
   font-size: 24px;
@@ -108,7 +112,7 @@ const UsImage = styled.img`
 
 const UsH3 = styled.h3`
   margin: 20px 0;
-  padding: 0 28px;
+  padding: 0;
   color: #414142;
   font-size: 24px;
   font-weight: 400;
