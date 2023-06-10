@@ -1,20 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const NotFound = () => {
-  const navigate = useNavigate();
-  const onHomeButtonClick = () => {
-    navigate('/');
-  };
-
   return (
     <NotFoundContainer>
       <NotFoundHeading>404 - Page Not Found</NotFoundHeading>
       <NotFoundMessage>
         Oops! The page you are looking for does not exist.
       </NotFoundMessage>
-      <GoBackButton onClick={onHomeButtonClick}>Go Back</GoBackButton>
+      <GoBackLink to="/">Go Back</GoBackLink>
     </NotFoundContainer>
   );
 };
@@ -47,13 +42,15 @@ const NotFoundMessage = styled.p`
   }
 `;
 
-const GoBackButton = styled.button`
+const GoBackLink = styled(Link)`
+  display: inline-block;
   padding: 10px 20px;
   font-size: 16px;
   background-color: #f44336;
   color: #fff;
   border: none;
   border-radius: 4px;
+  text-decoration: none;
   cursor: pointer;
 
   @media (max-width: 768px) {
