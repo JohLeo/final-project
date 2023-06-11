@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import styled from 'styled-components';
@@ -57,7 +58,7 @@ export const Search = () => {
         // Process the search results
         console.log('Search results:', data);
         const modifiedData = data.map((result) => ({
-          id: result.id,
+          id: result._id,
           description: result.description,
           category: result.category,
           realtor: result.realtor,
