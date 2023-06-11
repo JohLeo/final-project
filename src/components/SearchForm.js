@@ -12,9 +12,6 @@ export const Search = () => {
   const [maxSquareMeters, setMaxSquareMeters] = useState('');
   const [category, setCategory] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [noResults, setNoResults] = useState(false); // State to track if there are no search results
-
-  const categoryOptions = ['Apartment', 'House', 'Vacation Home'];
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -70,23 +67,18 @@ export const Search = () => {
           unitOfArea: result.unitOfArea,
           address: {
             street: result.address.street,
-            streetNumber: result.address.streetNumber,
-            city: result.address.city
+            streetNumber: result.address.streetNumber
           }
         }));
-
-        if (modifiedData.length === 0) {
-          setNoResults(true); // Set noResults state to true if there are no search results
-        } else {
-          setNoResults(false); // Reset noResults state if there are search results
-        }
-
         setSearchResults(modifiedData);
       })
       .catch((error) => {
         console.error('Error performing search:', error);
       });
   };
+
+  // Define the category options
+  const categoryOptions = ['Apartment', 'House', 'Vacation Home'];
 
   return (
     <div>
@@ -136,7 +128,6 @@ export const Search = () => {
           <ul>
             {searchResults.map((result) => (
               <ResultItem key={result.id}>
-
                 <Link to={`/properties/${result.id}`}>
                   {/* Update the URL to include the id */}
                   <Title>Description:</Title> {result.description}<br />
@@ -151,8 +142,6 @@ export const Search = () => {
           </ul>
         </ResultsContainer>
       )}
-      {/* Display no results message */}
-      {noResults && <NoResultsText>Cannot find any results.</NoResultsText>}
     </div>
   );
 };
@@ -160,41 +149,17 @@ export const Search = () => {
 // STYLING
 
 const Form = styled.form`
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  `;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+`;
 
 const Input = styled.input`
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  `;
-
-const ResultsContainer = styled.div`
-    margin-top: 20px;
-  
-    h2 {
-      margin-bottom: 10px;
-    }
-  
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-  
-    li {
-      margin-bottom: 5px;
-    }
-  `;
-
-const ResultItem = styled.li`
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  `;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
 
 const Select = styled.select`
   padding: 8px;
@@ -203,7 +168,30 @@ const Select = styled.select`
   border-radius: 4px;
 `;
 
-const Title = styled.strong`
-    font-weight: bold;
-  `;
+const ResultsContainer = styled.div`
+  margin-top: 20px;
 
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+`;
+
+const ResultItem = styled.li`
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
+const Title = styled.strong`
+  font-weight: bold;
+`;
