@@ -9,6 +9,7 @@ import Button from './lib/Button'
 export const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [noResults, setNoResults] = useState(false); // State to track if there are no search results
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -35,9 +36,17 @@ export const Search = () => {
           unitOfArea: result.unitOfArea,
           address: {
             street: result.address.street,
-            streetNumber: result.address.streetNumber
+            streetNumber: result.address.streetNumber,
+            city: result.address.city
           }
         }));
+
+        if (modifiedData.length === 0) {
+          setNoResults(true); // Set noResults state to true if there are no search results
+        } else {
+          setNoResults(false); // Reset noResults state if there are search results
+        }
+
         setSearchResults(modifiedData);
       })
       .catch((error) => {
@@ -65,6 +74,7 @@ export const Search = () => {
           <ul>
             {searchResults.map((result) => (
               <ResultItem key={result.id}>
+                <Title>City:</Title> {result.address.city}<br />
                 <Title>Description:</Title> {result.description}<br />
                 <Title>Category:</Title> {result.category}<br />
                 <Title>Street address:</Title> {result.address.street} {result.address.streetNumber}<br /><br />
@@ -76,6 +86,8 @@ export const Search = () => {
           </ul>
         </ResultsContainer>
       )}
+      {/* Display no results message */}
+      {noResults && <NoResultsText>Cannot find any results.</NoResultsText>}
     </div>
   );
 };
@@ -121,4 +133,8 @@ const ResultItem = styled.li`
 
 const Title = styled.strong`
   font-weight: bold;
+`;
+
+const NoResultsText = styled.p`
+  color: red;
 `;
