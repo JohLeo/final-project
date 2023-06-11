@@ -12,6 +12,7 @@ export const Search = () => {
   const [maxSquareMeters, setMaxSquareMeters] = useState('');
   const [category, setCategory] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [noResults, setNoResults] = useState(false); // State to track if there are no search results
 
   const categoryOptions = ['Apartment', 'House', 'Vacation Home'];
 
@@ -69,9 +70,17 @@ export const Search = () => {
           unitOfArea: result.unitOfArea,
           address: {
             street: result.address.street,
-            streetNumber: result.address.streetNumber
+            streetNumber: result.address.streetNumber,
+            city: result.address.city
           }
         }));
+
+        if (modifiedData.length === 0) {
+          setNoResults(true); // Set noResults state to true if there are no search results
+        } else {
+          setNoResults(false); // Reset noResults state if there are search results
+        }
+
         setSearchResults(modifiedData);
       })
       .catch((error) => {
@@ -127,6 +136,7 @@ export const Search = () => {
           <ul>
             {searchResults.map((result) => (
               <ResultItem key={result.id}>
+
                 <Link to={`/properties/${result.id}`}>
                   {/* Update the URL to include the id */}
                   <Title>Description:</Title> {result.description}<br />
@@ -141,6 +151,8 @@ export const Search = () => {
           </ul>
         </ResultsContainer>
       )}
+      {/* Display no results message */}
+      {noResults && <NoResultsText>Cannot find any results.</NoResultsText>}
     </div>
   );
 };
@@ -194,3 +206,4 @@ const Select = styled.select`
 const Title = styled.strong`
     font-weight: bold;
   `;
+
