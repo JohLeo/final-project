@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable no-underscore-dangle */
 // IMPORT MODULES
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { Link as RouterLink } from 'react-router-dom';
 import Loading from './Loading';
 
 // MAKE CONST OF API
@@ -32,18 +34,26 @@ export const ForSale = () => {
         <SearchContainer>
           {propertyData.map((item) => (
             <PropertyCard key={item.id}>
-              <p>
-                {item.address.street} {item.address.streetNumber}<br />
-                {item.address.postalCode}, {item.address.city}<br />
-                {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} {item.currency}, {item.squareMeters} {item.unitOfArea}<br />
-              </p>
-              <p>
-                {item.category}<br />
-                {item.description}<br />
-              </p>
-              <p>
-                {item.realtor}<br />
-              </p>
+              <StyledLink to={`/properties/${item._id}`}>
+                <p>
+                  {item.address.street} {item.address.streetNumber}
+                  <br />
+                  {item.address.postalCode}, {item.address.city}
+                  <br />
+                  {item.price
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}{' '}
+                  {item.currency}, {item.squareMeters} {item.unitOfArea}
+                  <br />
+                </p>
+                <p>
+                  {item.category}
+                  <br />
+                  {item.description}
+                  <br />
+                </p>
+                <p>{item.realtor}</p>
+              </StyledLink>
             </PropertyCard>
           ))}
         </SearchContainer>
@@ -54,13 +64,26 @@ export const ForSale = () => {
 
 // STYLING
 const SearchContainer = styled.div`
-border-style: solid; 
-max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   `;
 
 const PropertyCard = styled.div`
   border: 1px solid black;
   padding: 16px;
-  margin-bottom: 16px;
+  margin: 16px;
   max-width: 90%;
+  text-align: center;
+  height: 200px;
+  width: 200px;
+`;
+
+const StyledLink = styled(RouterLink)`
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
