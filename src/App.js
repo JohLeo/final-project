@@ -7,6 +7,7 @@ import { ForSale } from 'components/ForSale';
 import { NotFound } from 'components/NotFound';
 import { Contact } from 'components/Contact';
 import { PrivacyPolicy } from 'components/PrivacyPolicy';
+import { PropertyObject } from 'components/PropertyObject';
 import { Footer } from './components/Foot';
 import { StartPage } from './components/StartPage';
 
@@ -20,7 +21,7 @@ export const App = () => {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/forsale" element={<ForSale />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/object" element={<Temporary />} />
+          <Route path="/properties/:id" element={<PropertyObject />} />
           <Route path="/houses" element={<Temporary />} />
           <Route path="/apartments" element={<Temporary />} />
           <Route path="/holidayhomes" element={<Temporary />} />
