@@ -35,6 +35,9 @@ export const ForSale = () => {
           {propertyData.map((item) => (
             <PropertyCard key={item.id}>
               <StyledLink to={`/properties/${item._id}`}>
+                <ImageContainer>
+                  <img src={item.mainImg} alt="Property" />
+                </ImageContainer>
                 <p>
                   {item.address.street} {item.address.streetNumber}
                   <br />
@@ -69,13 +72,20 @@ const SearchContainer = styled.div`
   justify-content: center;
   `;
 
+const ImageContainer = styled.div`
+height: 10rem;
+  overflow: hidden;
+  margin-bottom: 10px;
+  object-fit: cover;
+`;
+
 const PropertyCard = styled.div`
   border: 1px solid black;
   padding: 16px;
   margin: 16px;
   max-width: 90%;
   text-align: center;
-  height: 200px;
+  height: 350px;
   width: 200px;
 `;
 
