@@ -9,9 +9,11 @@ const RealtorContainer = styled.div`
 `;
 
 const RealtorImage = styled.img`
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  max-width: 100%;
+  height: auto;
+  border-style: solid;
+  border-width: 5px 5px 14px 5px; 
+  border-color: #E6E6E8;
   margin: 10px 10px 0;
 `;
 
