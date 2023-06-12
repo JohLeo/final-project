@@ -48,6 +48,10 @@ export const PropertyObject = () => {
       <p>
         <strong>Price:</strong> {property.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} {property.currency}
       </p>
+      <p>
+        <strong>Main Image:</strong>
+        <img src={property.mainImg} alt="Main" />
+      </p>
     </div>
   );
 };
