@@ -72,7 +72,8 @@ export const Search = () => {
             address: {
               street: result.address.street,
               streetNumber: result.address.streetNumber
-            }
+            },
+            mainImg: result.mainImg
           }));
 
           setSearchResults(modifiedData);
@@ -149,7 +150,9 @@ export const Search = () => {
                 <Link to={`/properties/${result.id}`}>
                   {/* Update the URL to include the id */}
                   <ImageContainer>
-                    <MainImage src={result.mainImg} alt="Main Image" />
+                    <p>
+                      <img src={result.mainImg} alt="Main" />
+                    </p>
                   </ImageContainer>
                   <br />
                   <Title>Description:</Title> {result.description}
@@ -187,15 +190,8 @@ export const Search = () => {
 // STYLING
 
 const ImageContainer = styled.div`
-  width: 200px;
-  height: 150px;
   overflow: hidden;
   margin-bottom: 10px;
-`;
-
-const MainImage = styled.img`
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 `;
 
