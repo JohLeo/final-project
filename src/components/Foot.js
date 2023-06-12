@@ -10,7 +10,9 @@ import { Link } from 'react-router-dom';
 export const Footer = () => {
   return (
     <FooterContainer>
-      <Logo>LOGO</Logo>
+      <LogoLink to="/">
+        <Logo>Logo</Logo>
+      </LogoLink>
       <RightContainer>
         <Links>
           <li>
@@ -48,6 +50,10 @@ export const FooterContainer = styled.footer`
     padding: 2rem;
     justify-content: flex-start;
   }
+`;
+
+const LogoLink = styled(Link)`
+  text-decoration: none;
 `;
 
 export const Logo = styled.div`
