@@ -8,7 +8,9 @@ export const Nav = () => {
   const [open, setOpen] = useState(false);
   return (
     <Navbar>
-      <Logo>Logo</Logo>
+      <LogoLink to="/">
+        <Logo>Logo</Logo>
+      </LogoLink>
       <Links>
         <li>
           <Link to="/forsale">FOR SALE</Link>
@@ -33,6 +35,10 @@ const Navbar = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 15px;
+`;
+
+const LogoLink = styled(Link)`
+  text-decoration: none;
 `;
 
 const Logo = styled.div`

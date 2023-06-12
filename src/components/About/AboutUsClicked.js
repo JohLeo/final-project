@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { Link } from 'react-router-dom';
+import Button from 'components/lib/Button';
 import { ContainerColumn, ContainerRow } from '../GlobalStyles';
 import { Realtor } from '../lib/Realtors';
 
@@ -43,6 +45,11 @@ export const AboutUs = () => {
 
       </AboutRow>
 
+      <Link to="/">
+        <Button
+          type="submit"
+          text="Return" />
+      </Link>
       <ContainerRow>
         <UsH3>
             Hello Hi
