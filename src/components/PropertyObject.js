@@ -1,6 +1,7 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import Button from './lib/Button';
+import { useParams } from 'react-router-dom';
 
 export const PropertyObject = () => {
   const { id } = useParams();
@@ -29,6 +30,9 @@ export const PropertyObject = () => {
     <div>
       <h2>Property Details:</h2>
       <p>
+        <img src={property.mainImg} alt="Main" />
+      </p>
+      <p>
         <strong>Description:</strong> {property.description}
       </p>
       <p>
@@ -49,11 +53,11 @@ export const PropertyObject = () => {
       <p>
         <strong>Price:</strong> {property.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} {property.currency}
       </p>
-      <Link to="/">
-        <Button
-          type="submit"
-          text="Return" />
-      </Link>
+      <div>
+        {property.images.map((image, index) => (
+          <img key={index} src={image} alt={`Image ${index}`} />
+        ))}
+      </div>
     </div>
   );
 };
