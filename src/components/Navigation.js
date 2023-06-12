@@ -1,25 +1,32 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Burger from './Burger/Burger';
 import Menu from './Menu/Menu';
 
 export const Nav = () => {
   const [open, setOpen] = useState(false);
   return (
-
     <Navbar>
-      <Logo>Logo</Logo>
+      <LogoLink to="/">
+        <Logo>Logo</Logo>
+      </LogoLink>
       <Links>
-        <li><a href="#">FOR SALE</a></li>
-        <li><a href="#">ABOUT</a></li>
-        <li><a href="#">CONTACT</a></li>
+        <li>
+          <Link to="/forsale">FOR SALE</Link>
+        </li>
+        <li>
+          <Link to="/aboutus">ABOUT</Link>
+        </li>
+        <li>
+          <Link to="/contact">CONTACT</Link>
+        </li>
       </Links>
       <div>
         <Burger open={open} setOpen={setOpen} />
         <Menu open={open} setOpen={setOpen} />
       </div>
     </Navbar>
-
   );
 };
 
@@ -30,17 +37,21 @@ const Navbar = styled.nav`
   padding: 15px;
 `;
 
+const LogoLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const Logo = styled.div`
   font-size: 20px;
   font-weight: bold;
-  margin-left: 2rem; 
+  margin-left: 2rem;
   color: #fffaf2;
 `;
 
 const Links = styled.ul`
   display: flex;
   list-style: none;
-  margin-left: auto; 
+  margin-left: auto;
 
   li {
     margin-right: 2rem;
@@ -54,6 +65,6 @@ const Links = styled.ul`
   }
 
   @media (max-width: 768px) {
-    display: none; 
+    display: none;
   }
 `;

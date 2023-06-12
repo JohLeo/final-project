@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { RowLeft, ColumnLeft } from '../GlobalStyles';
+import { Link } from 'react-router-dom';
+import Button from 'components/lib/Button';
+import { ContainerColumn, ContainerRow } from '../GlobalStyles';
 import { Realtor } from '../lib/Realtors';
 
 export const AboutUs = () => {
@@ -41,32 +43,36 @@ export const AboutUs = () => {
             available to you.
         </UsText>
 
-        <MH3>
-            Our agents
-        </MH3>
-        <RowLeft>
-          <Realtor
-            src="https://i.postimg.cc/G2v9LTzN/Guru-The-Hannah.png"
-            alt="Hannah the Guru"
-            ariaLabel="Picture of Hannah"
-            name="Hannah" />
+        <UsImage
+          src="https://i.postimg.cc/pXGJs0tR/pexels-gerritt-tisdale-903028.jpg"
+          alt="Home estate" />
 
-          <Realtor
-            src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
-            alt="Sammy the proffessional"
-            ariaLabel="Picture of Sammy"
-            name="Sammy" />
+      </AboutRow>
 
-          <Realtor
-            src="https://i.postimg.cc/T19wm8zJ/Jojo.png"
-            alt="Johanna"
-            ariaLabel="Picture of Johanna"
-            name="Johanna" />
+      <ContainerRow>
+        <UsH3>
+            Hello Hi
+        </UsH3>
+        <Realtor
+          src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
+          alt="Hannah the Guru"
+          ariaLabel="Picture of Hannah"
+          name="Hannah" />
 
-        </RowLeft>
+        <Realtor
+          src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
+          alt="Sammy the proffessional"
+          ariaLabel="Picture of Sammy"
+          name="Sammy" />
 
-      </ColumnLeft>
-    </BgMore>
+        <Realtor
+          src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
+          alt="Johanna"
+          ariaLabel="Picture of Johanna"
+          name="Johanna" />
+
+      </ContainerRow>
+    </BgAbout>
 
   )
 };
