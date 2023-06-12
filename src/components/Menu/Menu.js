@@ -1,25 +1,27 @@
 import React from 'react';
 import { bool } from 'prop-types';
+import { Link } from 'react-router-dom';
 import { StyledMenu } from './Menu.styled';
 
 const Menu = ({ open }) => {
   return (
     <StyledMenu open={open}>
-      <a href="/">
+      <Link to="/forsale">
+        <span role="img" aria-label="for sale" />
+  for sale
+      </Link>
+      <Link to="/aboutus">
         <span role="img" aria-label="about us" />
-        for sale
-      </a>
-      <a href="/">
-        <span role="img" aria-label="price" />
-        about us
-      </a>
-      <a href="/">
+  about us
+      </Link>
+      <Link to="/contact">
         <span role="img" aria-label="contact" />
-        contact
-      </a>
+  contact
+      </Link>
     </StyledMenu>
-  )
-}
+  );
+};
+
 Menu.propTypes = {
   open: bool.isRequired
 }

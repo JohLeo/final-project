@@ -1,7 +1,8 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import Button from './lib/Button';
 
 export const PropertyObject = () => {
   const { id } = useParams();
@@ -58,6 +59,11 @@ export const PropertyObject = () => {
           <img key={index} src={image} alt={`Image ${index}`} />
         ))}
       </div>
+      <Link to="/">
+        <Button
+          type="submit"
+          text="Return" />
+      </Link>
     </div>
   );
 };

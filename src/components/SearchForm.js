@@ -60,6 +60,7 @@ export const Search = () => {
             filteredData = filteredData.filter((result) => result.squareMeters >= minSquareMeters);
           }
 
+          
           const modifiedData = filteredData.map((result) => ({
             id: result._id,
             description: result.description,
@@ -247,3 +248,4 @@ const ErrorMessage = styled.div`
   color: red;
   margin-top: 10px;
 `;
+
