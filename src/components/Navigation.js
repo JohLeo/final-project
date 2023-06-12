@@ -8,34 +8,43 @@ export const Nav = () => {
   const [open, setOpen] = useState(false);
   return (
     <Navbar>
-      <LogoLink to="/">
-        <Logo>Logo</Logo>
-      </LogoLink>
-      <Links>
-        <li>
-          <Link to="/forsale">FOR SALE</Link>
-        </li>
-        <li>
-          <Link to="/aboutus">ABOUT</Link>
-        </li>
-        <li>
-          <Link to="/contact">CONTACT</Link>
-        </li>
-      </Links>
-      <div>
-        <Burger open={open} setOpen={setOpen} />
-        <Menu open={open} setOpen={setOpen} />
-      </div>
+      <NavbarLinks>
+        <LogoLink to="/">
+          <Logo>Logo</Logo>
+        </LogoLink>
+        <Links>
+          <li>
+            <Link to="/forsale">FOR SALE</Link>
+          </li>
+          <li>
+            <Link to="/aboutus">ABOUT</Link>
+          </li>
+          <li>
+            <Link to="/contact">CONTACT</Link>
+          </li>
+        </Links>
+        <div>
+          <Burger open={open} setOpen={setOpen} />
+          <Menu open={open} setOpen={setOpen} />
+        </div>
+      </NavbarLinks>
     </Navbar>
   );
 };
 
 const Navbar = styled.nav`
+  width: 100%;
+  padding-top: 15px;
+  position: absolute;
+  top: 0;
+`;
+
+const NavbarLinks = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
-`;
+  width: 100%;
+`
 
 const LogoLink = styled(Link)`
   text-decoration: none;

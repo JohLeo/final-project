@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import Button from 'components/lib/Button';
-import { RowLeft, ColumnLeft } from '../GlobalStyles';
+import { ColumnLeft } from '../GlobalStyles';
 import { Realtor } from '../lib/Realtors';
 
 export const AboutUs = () => {
@@ -44,7 +44,7 @@ export const AboutUs = () => {
         <MH3>
         Our agents
         </MH3>
-        <RowLeft>
+        <AgentContainer>
           <AgentImg>
             <Realtor
               src="https://i.postimg.cc/G2v9LTzN/Guru-The-Hannah.png"
@@ -78,7 +78,7 @@ export const AboutUs = () => {
             <Email href="mailto:johanna@leonsson.se">johanna@homeigo.se</Email>
           </AgentImg>
 
-        </RowLeft>
+        </AgentContainer>
 
         <Link to="/">
           <Button
@@ -129,13 +129,24 @@ const UsText = styled.p`
  font-size: 14px;
  font-weight: 300;
 `
+const AgentContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
 
 const AgentImg = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   margin: 15px;
-`
 
+  @media (min-width: 375px) {
+    width: 42%;
+  }
+  @media (min-width: 768px) {
+    width: 18%;
+  }
+`
 const Title = styled.p`
  margin: 0;
  color: #414142;
