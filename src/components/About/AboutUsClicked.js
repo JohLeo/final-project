@@ -6,15 +6,17 @@ import { Realtor } from '../lib/Realtors';
 export const AboutUs = () => {
   return (
     <BgMore>
-
+      <MoreImg
+        src="https://i.postimg.cc/BnqwFZXs/pexels-daniel-frank-1111766.jpg"
+        alt="Home estate" />
       <ColumnLeft>
-        <MoreImg
-          src="https://i.postimg.cc/BnqwFZXs/pexels-daniel-frank-1111766.jpg"
-          alt="Home estate" />
-        <H1>
-            [Company Name] <br />
-            where exceptional homes find their perfect match.
-        </H1>
+        <MH1>
+          HOMEIGO
+        </MH1>
+        <MH2>
+         Where exceptional homes find their perfect match.
+        </MH2>
+
         <UsText>
             We embarked on a journey driven by our passion for connecting
             individuals with their dream homes. We believe that finding the perfect living
@@ -39,12 +41,12 @@ export const AboutUs = () => {
             available to you.
         </UsText>
 
-        <UsH3>
+        <MH3>
             Our agents
-        </UsH3>
+        </MH3>
         <RowLeft>
           <Realtor
-            src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
+            src="https://i.postimg.cc/G2v9LTzN/Guru-The-Hannah.png"
             alt="Hannah the Guru"
             ariaLabel="Picture of Hannah"
             name="Hannah" />
@@ -56,7 +58,7 @@ export const AboutUs = () => {
             name="Sammy" />
 
           <Realtor
-            src="https://i.pinimg.com/564x/d4/63/b9/d463b9355839ec568dd3452ffa36a575.jpg"
+            src="https://i.postimg.cc/T19wm8zJ/Jojo.png"
             alt="Johanna"
             ariaLabel="Picture of Johanna"
             name="Johanna" />
@@ -73,32 +75,38 @@ const BgMore = styled.div`
 background-color: #E6E6E6;
 padding: 40px 28px 40px 28px;
 `
+const MoreImg = styled.img`
+  width: 95%;
+  height: 95%;
+  border: 20px solid white;
+`;
+
+const MH1 = styled.h1`
+  padding: 0;
+  margin: 40px 0 0;
+  color: #414142;
+  font-size: 34px;
+  font-weight: 5s00;
+`
+const MH2 = styled.h3`
+  margin: 12px 0 0;
+  color: #414142;
+  font-size: 24px;
+  font-weight: 400;
+`
+const MH3 = styled.h3`
+  margin: 20px 0 0;
+  padding: 0;
+  color: #414142;
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+
+`
 const UsText = styled.p`
  padding: 0 2rem 1rem 0;
- white-space: pre-wrap;
  color: #414142;
  font-size: 14px;
  font-weight: 300;
 `
-const H1 = styled.h1`
-  padding: 0;
-  margin: 40px 0 0;
-  color: #414142;
-  font-size: 24px;
-  font-weight: 400;
-`
 
-const MoreImg = styled.img`
-  width: 100%;
-  height: 100%;
-  margin: 10px;
-  border: 20px solid white;
-`;
-
-const UsH3 = styled.h3`
-  margin: 20px 0;
-  padding: 0;
-  color: #414142;
-  font-size: 24px;
-  font-weight: 400;
-`
