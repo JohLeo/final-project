@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import Button from './lib/Button';
 
 export const PropertyObject = () => {
   const { id } = useParams();
@@ -48,6 +49,11 @@ export const PropertyObject = () => {
       <p>
         <strong>Price:</strong> {property.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} {property.currency}
       </p>
+      <Link to="/">
+        <Button
+          type="submit"
+          text="Return" />
+      </Link>
     </div>
   );
 };
