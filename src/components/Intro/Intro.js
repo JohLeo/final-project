@@ -25,7 +25,11 @@ const BgColors = keyframes`
 
 const IntroBg = styled.div`
 background-color: #0D3A43;
+height: 100vh;
 animation: ${BgColors} 30s linear infinite;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 const IntroImage = styled.img`
