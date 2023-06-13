@@ -181,13 +181,13 @@ export const Search = () => {
           {searchResults.map((result) => (
             <SearchResult key={result.id}>
               <SearchResultImage src={result.mainImg} alt={result.description} />
+              <SearchResultCategory>{result.category}</SearchResultCategory>
               <SearchResultContent>
-                <SearchResultCategory>{result.category}</SearchResultCategory>
+                <SearchResultDetail>
+                  <span>Address:</span> {result.address.street} {result.address.streetNumber}
+                </SearchResultDetail>
                 <SearchResultDescription>{result.description}</SearchResultDescription>
                 <SearchResultDetails>
-                  <SearchResultDetail>
-                    <span>Realtor:</span> {result.realtor}
-                  </SearchResultDetail>
                   <SearchResultDetail>
                     <span>Price:</span> {result.price} {result.currency}
                   </SearchResultDetail>
@@ -195,10 +195,10 @@ export const Search = () => {
                     <span>Square Meters:</span> {result.squareMeters} {result.unitOfArea}
                   </SearchResultDetail>
                   <SearchResultDetail>
-                    <span>Address:</span> {result.address.street} {result.address.streetNumber}
+                    <span>Realtor:</span> {result.realtor}
                   </SearchResultDetail>
                 </SearchResultDetails>
-                <Link to={`/property/${result.id}`}>View Details</Link>
+                <Link to={`/properties/${result.id}`}>View Details</Link>
               </SearchResultContent>
             </SearchResult>
           ))}
@@ -264,11 +264,12 @@ const SearchResultImage = styled.img`
 `;
 
 const SearchResultContent = styled.div`
-  margin-top: 10px;
+  margin: 10px 0 10px 0;
+
 `;
 
 const SearchResultCategory = styled.h3`
-  margin: 0;
+  margin: 1rem 0 0 0;
   font-size: 18px;
 `;
 
@@ -280,13 +281,20 @@ const SearchResultDetails = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 10px;
+  justify-content: space-between;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+  }
 `;
 
 const SearchResultDetail = styled.div`
-  flex: 1 0 50%;
-  display: flex;
-  align-items: center;
   margin-bottom: 5px;
+  flex: 0 0 50%;
+
+  @media (max-width: 425px) {
+    flex: 0 0 100%;
+  }
 `;
 
 const ErrorMessage = styled.p`
