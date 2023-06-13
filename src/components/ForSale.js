@@ -1,9 +1,8 @@
-/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable no-underscore-dangle */
-// IMPORT MODULES
+/* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Loading from './Loading';
 
 // MAKE CONST OF API
@@ -20,7 +19,7 @@ export const ForSale = () => {
       .then((res) => res.json())
       .then((responseData) => {
         setPropertyData(responseData);
-        setTimeout(() => setIsLoading(false), 3000)
+        setTimeout(() => setIsLoading(false), 3000);
         console.log(responseData); // CONSOLE LOGGING THE JSON - WE CAN REMOVE THIS BEFORE DEPLOY
       });
   }, []);
@@ -32,68 +31,100 @@ export const ForSale = () => {
         <Loading />
       ) : (
         <SearchContainer>
-          {propertyData.map((item) => (
-            <PropertyCard key={item.id}>
-              <StyledLink to={`/properties/${item._id}`}>
-                <ImageContainer>
-                  <img src={item.mainImg} alt="Property" />
-                </ImageContainer>
-                <p>
-                  {item.address.street} {item.address.streetNumber}
-                  <br />
-                  {item.address.postalCode}, {item.address.city}
-                  <br />
-                  {item.price
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}{' '}
-                  {item.currency}, {item.squareMeters} {item.unitOfArea}
-                  <br />
-                </p>
-                <p>
-                  {item.category}
-                  <br />
-                  {item.description}
-                  <br />
-                </p>
-                <p>{item.realtor}</p>
-              </StyledLink>
-            </PropertyCard>
+          {propertyData.map((item, index) => (
+            <React.Fragment key={item.id}>
+              <PropertyCard>
+                <Link to={`/properties/${item._id}`}>
+                  <ImageContainer>
+                    <img src={item.mainImg} alt="Property" />
+                  </ImageContainer>
+                  <TextContainer>
+                    <p>
+                      {item.address.street} {item.address.streetNumber}
+                      <br />
+                      {item.address.postalCode}, {item.address.city}
+                      <br />
+                      {item.price
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}{' '}
+                      {item.currency}, {item.squareMeters} {item.unitOfArea}
+                      <br />
+                    </p>
+                    <p>
+                      {item.category}
+                      <br />
+                      {item.description}
+                      <br />
+                    </p>
+                    <p>{item.realtor}</p>
+                  </TextContainer>
+                </Link>
+              </PropertyCard>
+              {index < propertyData.length - 1 && <HorizontalLine />}
+            </React.Fragment>
           ))}
         </SearchContainer>
       )}
     </>
   );
 };
-
 // STYLING
+const HorizontalLine = styled.div`
+  width: 70%;
+  height: 1px;
+  background-color: black;
+  margin: 16px auto;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-53%);
+  }
+`;
+
 const SearchContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  `;
+  align-items: center;
+  flex-direction: column;
+  margin: 7rem 16px;
+  overflow-x: hidden;
+
+  @media (max-width: 768px) {
+    margin: 7rem 0;
+    width: 95%;
+    margin-left: 3px;
+  }
+`;
 
 const ImageContainer = styled.div`
-height: 10rem;
-  overflow: hidden;
-  margin-bottom: 10px;
-  object-fit: cover;
+height: 35rem;
+overflow: hidden;
+object-fit: cover;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 1rem 16px 1rem 0;
+`;
+
+const TextContainer = styled.div`
+    text-align: left;
+    flex: 1;
 `;
 
 const PropertyCard = styled.div`
-  border: 1px solid black;
   padding: 16px;
-  margin: 16px;
+  width: 100%;
   max-width: 90%;
-  text-align: center;
-  height: 350px;
-  width: 200px;
-`;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 
-const StyledLink = styled(RouterLink)`
-  text-decoration: none;
-  color: inherit;
-
-  &:hover {
-    text-decoration: underline;
+  @media (max-width: 768px) {
+    max-width: 90%;
+    flex-direction: row;
   }
 `;
