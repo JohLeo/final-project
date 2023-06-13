@@ -51,7 +51,7 @@ export const About = () => {
 };
 
 const BgAbout = styled.div`
-background-color: #E6E6E6;
+background-color: var(--bg-grey);
 padding: 20px 0;
 `
 const AboutRow = styled.div`
@@ -67,7 +67,7 @@ const AboutBtn = styled.div`
 
 const UsText = styled.p`
  padding: 0 28px;
- color: #414142;
+ color: var(--text);;
  font-size: 14px;
  font-weight: 300;
  max-width: 500px;
@@ -75,14 +75,14 @@ const UsText = styled.p`
 const UsH1 = styled.h1`
   padding: 20px 0 0 28px;
   margin: 0;
-  color: #414142;
+  color: var(--text);
   font-size: 30px;
   font-weight: 500;
 `
 const UsH3 = styled.h1`
   padding: 0 28px;
   margin: 0;
-  color: #414142;
+  color: var(--text);
   font-size: 24px;
   font-weight: 400;
 `

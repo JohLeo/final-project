@@ -125,7 +125,7 @@ const MH3 = styled.h3`
 const UsText = styled.p`
  padding: 0 2rem 1rem 0;
  margin: 20px;
- color: #414142;
+ color: var(--text);
  font-size: 14px;
  font-weight: 300;
 `
@@ -149,13 +149,13 @@ const AgentImg = styled.div`
 `
 const Title = styled.p`
  margin: 0;
- color: #414142;
+ color: var(--text);
  font-size: 10px;
  font-weight: 300;
 `
 const Name = styled.p`
  margin: 0;
- color: #414142;
+ color: var(--text);
  font-size: 14px;
  font-weight: 400;
  text-transform: uppercase;
@@ -163,14 +163,14 @@ const Name = styled.p`
 
 const Phone = styled.a`
  margin: 10px 0 0;
- color: #414142;
+ color: var(--text);
  font-size: 14px;
  font-weight: 700;
  text-decoration: none;
 `
 const Email = styled.a`
  margin: 0;
- color: #414142;
+ color: var(--text);
  font-size: 10px;
  font-weight: 500;
  text-decoration: none;
