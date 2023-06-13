@@ -1,9 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable max-len */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Button from './lib/Button';
 
 export const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -86,164 +85,182 @@ export const Search = () => {
       });
   };
 
-  // Define the category options
-  const categoryOptions = ['Apartment', 'House', 'Vacation Home'];
+  // Default search results
+  useEffect(() => {
+    // Perform the search with default parameters
+    fetch('https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties')
+      .then((response) => response.json())
+      .then((data) => {
+        // Process the search results
+        console.log('Default search results:', data);
+
+        if (data.length === 0) {
+          setSearchResults([]);
+          setSearchError('No properties available.');
+        } else {
+          const defaultResults = data.slice(0, 3).map((result) => ({
+            id: result._id,
+            description: result.description,
+            category: result.category,
+            realtor: result.realtor,
+            price: result.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '),
+            currency: result.currency,
+            squareMeters: result.squareMeters,
+            unitOfArea: result.unitOfArea,
+            address: {
+              street: result.address.street,
+              streetNumber: result.address.streetNumber
+            },
+            mainImg: result.mainImg
+          }));
+
+          setSearchResults(defaultResults);
+          setSearchError('');
+        }
+      })
+      .catch((error) => {
+        console.error('Error performing search:', error);
+        setSearchError('An error occurred while performing the search. Please try again later.');
+      });
+  }, []);
 
   return (
-    <div>
-      <Form onSubmit={handleSearchSubmit}>
-        <Input
+    <Container>
+      <SearchForm onSubmit={handleSearchSubmit}>
+        <SearchInput
           type="text"
-          placeholder="City"
+          placeholder="Search by city"
           value={searchTerm}
           onChange={handleSearchChange} />
-        <Select value={category} onChange={handleCategoryChange}>
-          <option value="">Select category</option>
-          {categoryOptions.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
+        <SearchInput
+          type="number"
+          placeholder="Max Price"
+          min="0"
+          value={maxPrice}
+          onChange={handleMaxPriceChange} />
+        <SearchInput
+          type="number"
+          placeholder="Min Square Meters"
+          min="0"
+          value={minSquareMeters}
+          onChange={handleMinSquareMetersChange} />
+        <SearchSelect value={category} onChange={handleCategoryChange}>
+          <option value="">All Categories</option>
+          <option value="house">House</option>
+          <option value="apartment">Apartment</option>
+          <option value="condo">Condo</option>
+        </SearchSelect>
+        <SearchButton type="submit">Search</SearchButton>
+      </SearchForm>
+      {searchResults.length > 0 ? (
+        <SearchResults>
+          {searchResults.map((result) => (
+            <SearchResult key={result.id}>
+              <SearchResultImage src={result.mainImg} alt={result.description} />
+              <SearchResultContent>
+                <SearchResultCategory>{result.category}</SearchResultCategory>
+                <SearchResultDescription>{result.description}</SearchResultDescription>
+                <SearchResultDetails>
+                  <SearchResultDetail>
+                    <span>Realtor:</span> {result.realtor}
+                  </SearchResultDetail>
+                  <SearchResultDetail>
+                    <span>Price:</span> {result.price} {result.currency}
+                  </SearchResultDetail>
+                  <SearchResultDetail>
+                    <span>Square Meters:</span> {result.squareMeters} {result.unitOfArea}
+                  </SearchResultDetail>
+                  <SearchResultDetail>
+                    <span>Address:</span> {result.address.street} {result.address.streetNumber}
+                  </SearchResultDetail>
+                </SearchResultDetails>
+                <Link to={`/property/${result.id}`}>View Details</Link>
+              </SearchResultContent>
+            </SearchResult>
           ))}
-        </Select>
-        <Select value={maxPrice} onChange={handleMaxPriceChange}>
-          <option value="">Max Price</option>
-          <option value="500000">€500,000</option>
-          <option value="1000000">€1,000,000</option>
-          <option value="2000000">€2,000,000</option>
-          <option value="3000000">€3,000,000</option>
-          <option value="4000000">€4,000,000</option>
-          <option value="5000000">€5,000,000</option>
-          <option value="6000000">€6,000,000</option>
-          <option value="7000000">€7,000,000</option>
-          <option value="8000000">€8,000,000</option>
-          <option value="9000000">€9,000,000</option>
-          <option value="10000000">€10,000,000</option>
-          <option value="11000000">€11,000,000</option>
-          <option value="12000000">€12,000,000</option>
-          <option value="13000000">€13,000,000</option>
-          <option value="14000000">€14,000,000</option>
-          <option value="15000000">€15,000,000</option>
-          <option value="20000000">€20,000,000</option>
-        </Select>
-        <Select value={minSquareMeters} onChange={handleMinSquareMetersChange}>
-          <option value="">Min Square Meters</option>
-          <option value="50">50 sqm</option>
-          <option value="60">60 sqm</option>
-          <option value="70">70 sqm</option>
-          <option value="80">80 sqm</option>
-          <option value="90">90 sqm</option>
-          <option value="100">100 sqm</option>
-          <option value="120">120 sqm</option>
-          <option value="150">150 sqm</option>
-          <option value="200">200 sqm</option>
-        </Select>
-        <Button type="submit" text="Search" />
-      </Form>
-
-      {/* Display search results */}
-      {searchResults.length > 0 && (
-        <ResultsContainer>
-          <h2>Search Results:</h2>
-          <ul>
-            {searchResults.map((result) => (
-              <ResultItem key={result.id}>
-                <Link to={`/properties/${result.id}`}>
-                  {/* Update the URL to include the id */}
-                  <ImageContainer>
-                    <p>
-                      <img src={result.mainImg} alt="Main" />
-                    </p>
-                  </ImageContainer>
-                  <br />
-                  <Title>Description:</Title> {result.description}
-                  <br />
-                  <Title>Category:</Title> {result.category}
-                  <br />
-                  <Title>Street address:</Title>{' '}
-                  {result.address.street} {result.address.streetNumber}
-                  <br />
-                  <br />
-                  <Title>Price:</Title> {result.price} {result.currency}
-                  <br />
-                  <Title>Size:</Title> {result.squareMeters}{' '}
-                  {result.unitOfArea}
-                  <br />
-                  <Title>Realtor:</Title> {result.realtor}
-                  <br />
-                </Link>
-              </ResultItem>
-            ))}
-          </ul>
-        </ResultsContainer>
+        </SearchResults>
+      ) : (
+        <ErrorMessage>{searchError}</ErrorMessage>
       )}
-
-      {/* Displays error message */}
-      {searchError && (
-        <ErrorMessage>
-          {searchError}
-        </ErrorMessage>
-      )}
-    </div>
+    </Container>
   );
 };
 
-// STYLING
-
-const ImageContainer = styled.div`
-  overflow: hidden;
-  margin-bottom: 10px;
-  object-fit: cover;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
 `;
 
-const Form = styled.form`
+const SearchForm = styled.form`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 `;
 
-const Input = styled.input`
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-`;
-
-const Select = styled.select`
-  padding: 8px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-`;
-
-const ResultsContainer = styled.div`
-  margin-top: 20px;
-
-  h2 {
-    margin-bottom: 10px;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  li {
-    margin-bottom: 5px;
-  }
-`;
-
-const ResultItem = styled.li`
-  margin-bottom: 10px;
+const SearchInput = styled.input`
   padding: 10px;
+  margin-right: 10px;
+`;
+
+const SearchSelect = styled.select`
+  padding: 10px;
+  margin-right: 10px;
+`;
+
+const SearchButton = styled.button`
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+`;
+
+const SearchResults = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+`;
+
+const SearchResult = styled.div`
   border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 20px;
 `;
 
-const Title = styled.strong`
-  font-weight: bold;
+const SearchResultImage = styled.img`
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 `;
 
-const ErrorMessage = styled.div`
-  color: red;
+const SearchResultContent = styled.div`
   margin-top: 10px;
+`;
+
+const SearchResultCategory = styled.h3`
+  margin: 0;
+  font-size: 18px;
+`;
+
+const SearchResultDescription = styled.p`
+  margin: 10px 0;
+`;
+
+const SearchResultDetails = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+`;
+
+const SearchResultDetail = styled.div`
+  flex: 1 0 50%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+`;
+
+const ErrorMessage = styled.p`
+  color: red;
+  font-weight: bold;
 `;
