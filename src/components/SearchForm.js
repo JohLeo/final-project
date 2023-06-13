@@ -215,13 +215,14 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
 `;
 
 const SearchForm = styled.form`
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+margin-bottom: 20px;
 `;
 
 const SearchInput = styled.input`
@@ -233,11 +234,6 @@ const InlineInputs = styled.div`
 display: flex;
 flex-direction: column;
 gap: 10px;
-
-@media (min-width: 900px) {
-  grid-column: 1 / span 3;
-  flex-direction: row;
-  }
 `;
 
 const Select = styled.select`
@@ -246,10 +242,6 @@ font-size: 16px;
 border: 1px solid #ccc;
 border-radius: 4px;
 flex: 1;
-
-@media (min-width: 900px) {
-  flex: unset;
-}
 `;
 
 const SearchButton = styled.button`
