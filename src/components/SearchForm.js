@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Button from './lib/Button';
 
 export const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -49,7 +50,7 @@ export const Search = () => {
 
       if (data.length === 0) {
         setSearchResults([]);
-        setSearchError('No properties available in this city.');
+        setSearchError('Sorry city not found, we only operate in Stockholm, Helsingborg and Malmö at the moment.');
       } else {
         let filteredData = data;
 
@@ -97,7 +98,7 @@ export const Search = () => {
 
         if (data.length === 0) {
           setSearchResults([]);
-          setSearchError('No properties available.');
+          setSearchError('Sorry city not found, we only operate in Stockholm, Helsingborg and Malmö at the moment.');
         } else {
           const defaultResults = data.slice(0, 3).map((result) => ({
             id: result._id,
@@ -128,54 +129,52 @@ export const Search = () => {
   return (
     <Container>
       <SearchForm onSubmit={handleSearchSubmit}>
-        <SearchInput
+        <Input
           type="text"
-          placeholder="Search by city"
+          placeholder="Search by City"
           value={searchTerm}
           onChange={handleSearchChange} />
-        <InlineInputs>
-          <Select value={category} onChange={handleCategoryChange}>
-            <option value="">Select category</option>
-            {categoryOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </Select>
-          <Select value={maxPrice} onChange={handleMaxPriceChange}>
-            <option value="">Max Price</option>
-            <option value="500000">€500,000</option>
-            <option value="1000000">€1,000,000</option>
-            <option value="2000000">€2,000,000</option>
-            <option value="3000000">€3,000,000</option>
-            <option value="4000000">€4,000,000</option>
-            <option value="5000000">€5,000,000</option>
-            <option value="6000000">€6,000,000</option>
-            <option value="7000000">€7,000,000</option>
-            <option value="8000000">€8,000,000</option>
-            <option value="9000000">€9,000,000</option>
-            <option value="10000000">€10,000,000</option>
-            <option value="11000000">€11,000,000</option>
-            <option value="12000000">€12,000,000</option>
-            <option value="13000000">€13,000,000</option>
-            <option value="14000000">€14,000,000</option>
-            <option value="15000000">€15,000,000</option>
-            <option value="20000000">€20,000,000</option>
-          </Select>
-          <Select value={minSquareMeters} onChange={handleMinSquareMetersChange}>
-            <option value="">Min Square Meters</option>
-            <option value="50">50 sqm</option>
-            <option value="60">60 sqm</option>
-            <option value="70">70 sqm</option>
-            <option value="80">80 sqm</option>
-            <option value="90">90 sqm</option>
-            <option value="100">100 sqm</option>
-            <option value="120">120 sqm</option>
-            <option value="150">150 sqm</option>
-            <option value="200">200 sqm</option>
-          </Select>
-        </InlineInputs>
-        <SearchButton type="submit">Search</SearchButton>
+        <Select value={category} onChange={handleCategoryChange}>
+          <option value="">Select Category</option>
+          {categoryOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </Select>
+        <Select value={maxPrice} onChange={handleMaxPriceChange}>
+          <option value="">Max Price</option>
+          <option value="500000">€500,000</option>
+          <option value="1000000">€1,000,000</option>
+          <option value="2000000">€2,000,000</option>
+          <option value="3000000">€3,000,000</option>
+          <option value="4000000">€4,000,000</option>
+          <option value="5000000">€5,000,000</option>
+          <option value="6000000">€6,000,000</option>
+          <option value="7000000">€7,000,000</option>
+          <option value="8000000">€8,000,000</option>
+          <option value="9000000">€9,000,000</option>
+          <option value="10000000">€10,000,000</option>
+          <option value="11000000">€11,000,000</option>
+          <option value="12000000">€12,000,000</option>
+          <option value="13000000">€13,000,000</option>
+          <option value="14000000">€14,000,000</option>
+          <option value="15000000">€15,000,000</option>
+          <option value="20000000">€20,000,000</option>
+        </Select>
+        <Select value={minSquareMeters} onChange={handleMinSquareMetersChange}>
+          <option value="">Min Square Meters</option>
+          <option value="50">50 sqm</option>
+          <option value="60">60 sqm</option>
+          <option value="70">70 sqm</option>
+          <option value="80">80 sqm</option>
+          <option value="90">90 sqm</option>
+          <option value="100">100 sqm</option>
+          <option value="120">120 sqm</option>
+          <option value="150">150 sqm</option>
+          <option value="200">200 sqm</option>
+        </Select>
+        <Button type="submit" text="Search" />
       </SearchForm>
       {searchResults.length > 0 ? (
         <SearchResults>
@@ -223,17 +222,20 @@ flex-wrap: wrap;
 justify-content: center;
 align-items: center;
 margin-bottom: 20px;
-`;
-
-const SearchInput = styled.input`
-  padding: 10px;
-  margin-right: 10px;
-`;
-
-const InlineInputs = styled.div`
-display: flex;
-flex-direction: column;
 gap: 10px;
+
+@media (max-width: 425px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+`;
+
+const Input = styled.input`
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.8rem;
 `;
 
 const Select = styled.select`
@@ -242,14 +244,6 @@ font-size: 16px;
 border: 1px solid #ccc;
 border-radius: 4px;
 flex: 1;
-`;
-
-const SearchButton = styled.button`
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
 `;
 
 const SearchResults = styled.div`
@@ -298,4 +292,5 @@ const SearchResultDetail = styled.div`
 const ErrorMessage = styled.p`
   color: red;
   font-weight: bold;
+  margin-top: 10px;
 `;
