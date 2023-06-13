@@ -70,7 +70,7 @@ export const ForSale = () => {
 };
 // STYLING
 const HorizontalLine = styled.div`
-  width: 55%;
+  width: 70%;
   height: 1px;
   background-color: black;
   margin: 16px auto;
