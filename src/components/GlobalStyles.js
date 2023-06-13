@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
       padding: 0;
       max-width: 100%;
       background: red;
+      font-family: 'Karla', sans-serif;
     }
   }
   
@@ -18,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
         max-width: 100%;
         background: green;
+        font-family: 'Karla', sans-serif;
     }
   }
 
@@ -26,6 +28,7 @@ const GlobalStyles = createGlobalStyle`
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      font-family: 'Karla', sans-serif;
     }  
   }
 `;

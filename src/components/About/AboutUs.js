@@ -68,23 +68,26 @@ const AboutBtn = styled.div`
 const UsText = styled.p`
  padding: 0 28px;
  color: #414142;
- font-size: 14px;
+ font-size: 17px;
  font-weight: 300;
  max-width: 500px;
+ font-family: 'Karla', sans-serif;
 `
 const UsH1 = styled.h1`
   padding: 20px 0 0 28px;
   margin: 0;
   color: #414142;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 500;
+  font-family: 'Karla', sans-serif;
 `
 const UsH3 = styled.h1`
   padding: 0 28px;
   margin: 0;
   color: #414142;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 400;
+  font-family: 'Karla', sans-serif;
 `
 
 const UsImage = styled.img`

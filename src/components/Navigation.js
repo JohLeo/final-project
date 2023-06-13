@@ -44,6 +44,7 @@ const NavbarLinks = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  font-family: 'Karla', sans-serif;
 `
 
 const LogoLink = styled(Link)`

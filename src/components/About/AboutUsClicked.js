@@ -104,14 +104,16 @@ const MH1 = styled.h1`
   padding: 0;
   margin: 40px 20px 0;
   color: #414142;
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 5s00;
+  font-family: 'Karla', sans-serif;
 `
 const MH2 = styled.h3`
   margin: 12px 0 0 20px;
   color: #414142;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 400;
+  font-family: 'Karla', sans-serif;
 `
 const MH3 = styled.h3`
   margin: 20px 0 0 20px;
@@ -120,14 +122,15 @@ const MH3 = styled.h3`
   font-size: 24px;
   font-weight: 400;
   text-transform: uppercase;
-
+  font-family: 'Karla', sans-serif;
 `
 const UsText = styled.p`
  padding: 0 2rem 1rem 0;
  margin: 20px;
  color: #414142;
- font-size: 14px;
+ font-size: 16px;
  font-weight: 300;
+ font-family: 'Karla', sans-serif;
 `
 const AgentContainer = styled.div`
   display: flex;
@@ -150,28 +153,32 @@ const AgentImg = styled.div`
 const Title = styled.p`
  margin: 0;
  color: #414142;
- font-size: 10px;
+ font-size: 16px;
  font-weight: 300;
+ font-family: 'Karla', sans-serif;
 `
 const Name = styled.p`
  margin: 0;
  color: #414142;
- font-size: 14px;
+ font-size: 18px;
  font-weight: 400;
  text-transform: uppercase;
+ font-family: 'Karla', sans-serif;
 `
 
 const Phone = styled.a`
  margin: 10px 0 0;
  color: #414142;
- font-size: 14px;
+ font-size: 16px;
  font-weight: 700;
  text-decoration: none;
+ font-family: 'Karla', sans-serif;
 `
 const Email = styled.a`
  margin: 0;
  color: #414142;
- font-size: 10px;
+ font-size: 14px;
  font-weight: 500;
  text-decoration: none;
+ font-family: 'Karla', sans-serif;
 `

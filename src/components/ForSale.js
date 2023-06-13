@@ -87,6 +87,8 @@ const PropertyCard = styled.div`
   text-align: center;
   height: 350px;
   width: 200px;
+  font-family: 'Karla', sans-serif;
+  font-size: 18px
 `;
 
 const StyledLink = styled(RouterLink)`

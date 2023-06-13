@@ -27,18 +27,22 @@ const NotFoundContainer = styled.div`
 const NotFoundHeading = styled.h1`
   font-size: 28px;
   font-weight: bold;
+  font-family: 'Karla', sans-serif;
 
   @media (max-width: 768px) {
     font-size: 24px;
+    font-family: 'Karla', sans-serif;
   }
 `;
 
 const NotFoundMessage = styled.p`
   font-size: 18px;
   margin-bottom: 20px;
+  font-family: 'Karla', sans-serif;
 
   @media (max-width: 768px) {
     font-size: 16px;
+    font-family: 'Karla', sans-serif;
   }
 `;
 
@@ -52,8 +56,10 @@ const GoBackLink = styled(Link)`
   border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
+  font-family: 'Karla', sans-serif;
 
   @media (max-width: 768px) {
     font-size: 14px;
+    font-family: 'Karla', sans-serif;
   }
 `;

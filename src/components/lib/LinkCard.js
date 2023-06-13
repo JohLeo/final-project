@@ -24,6 +24,7 @@ const LocationText = styled.div`
   font-size: 14px;
   text-transform: uppercase;
   white-space: nowrap;
+  font-family: 'Karla', sans-serif;
 `;
 
 export const LocationImg = ({ src, alt, ariaLabel, locationText }) => {

@@ -10,6 +10,7 @@ const FadeButton = styled.button`
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-family: 'Karla', sans-serif;
 
   &:hover {
     background-color: black;

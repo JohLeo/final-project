@@ -22,6 +22,7 @@ const RealtorName = styled.p`
   font-size: 11px;
   font-weight: 300;
   margin: 8px 0;
+  font-family: 'Karla', sans-serif;
 `;
 
 export const Realtor = ({ src, alt, ariaLabel, name }) => {

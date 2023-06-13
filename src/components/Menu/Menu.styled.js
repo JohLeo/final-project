@@ -23,6 +23,7 @@ export const StyledMenu = styled.nav`
 
     a {
       text-align: center;
+      font-family: 'Karla', sans-serif;
     }
   }
 
@@ -32,6 +33,7 @@ export const StyledMenu = styled.nav`
     
     a {
       text-align: center;
+      font-family: 'Karla', sans-serif;
     }
   }
 
@@ -44,6 +46,7 @@ export const StyledMenu = styled.nav`
     color: black;
     text-decoration: none;
     transition: color 0.3s linear;
+    font-family: 'Karla', sans-serif;
     
     @media (max-width: 768px) {
       font-size: 1.5rem;
@@ -53,6 +56,7 @@ export const StyledMenu = styled.nav`
     @media (min-width: 769px) and (max-width: 1024px) {
       font-size: 1.5rem;
       text-align: center;
+      font-family: 'Karla', sans-serif;
     }
 
     &:hover {

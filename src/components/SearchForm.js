@@ -228,6 +228,7 @@ margin-bottom: 20px;
 const SearchInput = styled.input`
   padding: 10px;
   margin-right: 10px;
+  font-family: 'Karla', sans-serif;
 `;
 
 const InlineInputs = styled.div`
@@ -242,6 +243,7 @@ font-size: 16px;
 border: 1px solid #ccc;
 border-radius: 4px;
 flex: 1;
+font-family: 'Karla', sans-serif;
 `;
 
 const SearchButton = styled.button`
@@ -250,12 +252,15 @@ const SearchButton = styled.button`
   color: #fff;
   border: none;
   cursor: pointer;
+  font-family: 'Karla', sans-serif;
 `;
 
 const SearchResults = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
+  font-size: 18px;
+  font-family: 'Karla', sans-serif;
 `;
 
 const SearchResult = styled.div`
@@ -298,4 +303,5 @@ const SearchResultDetail = styled.div`
 const ErrorMessage = styled.p`
   color: red;
   font-weight: bold;
+  font-family: 'Karla', sans-serif;
 `;
