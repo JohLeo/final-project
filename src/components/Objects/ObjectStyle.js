@@ -77,7 +77,7 @@ export const ExtraImg = styled.img`
   margin: 0;
 `;
 
-export const Test = styled.div`
+export const ObjectInfo = styled.div`
 display: flex;
 flex-wrap: wrap;
 justify-content: space-between;

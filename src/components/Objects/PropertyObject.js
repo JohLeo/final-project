@@ -14,7 +14,7 @@ import { ObjectMainImg,
   Label,
   Value,
   ItemDescription,
-  Test } from './ObjectStyle'
+  ObjectInfo } from './ObjectStyle'
 
 export const PropertyObject = () => {
   const { id } = useParams();
@@ -47,7 +47,7 @@ export const PropertyObject = () => {
         <OverH4> {property.address.city} </OverH4>
         <OverH5> {property.squareMeters} {property.unitOfArea}</OverH5>
       </ObjectMainImg>
-      <Test>
+      <ObjectInfo>
         <InfoDescription>
           <MainText>
             {property.description} <br />
@@ -81,7 +81,7 @@ export const PropertyObject = () => {
           <PropertyInfo label="City" value={property.address.city} />
           <PropertyInfo label="Realtor" value={property.realtor} />
         </InfoDescription>
-      </Test>
+      </ObjectInfo>
 
       <div>
         {property.images.map((image, index) => (
