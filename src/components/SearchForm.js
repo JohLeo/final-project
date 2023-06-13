@@ -11,6 +11,7 @@ export const Search = () => {
   const [category, setCategory] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searchError, setSearchError] = useState('');
+  const categoryOptions = ['Apartment', 'House', 'Vacation Home'];
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -28,7 +29,7 @@ export const Search = () => {
     setCategory(event.target.value);
   };
 
-  const handleSearchSubmit = (event) => {
+  const handleSearchSubmit = async (event) => {
     event.preventDefault();
 
     // Build the query string based on the search parameters
@@ -38,51 +39,51 @@ export const Search = () => {
       queryString += `&type=${category}`;
     }
 
-    // Perform the search with the query string
-    fetch(`https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties${queryString}`)
-      .then((response) => response.json())
-      .then((data) => {
-        // Process the search results
-        console.log('Search results:', data);
+    try {
+      // Perform the search with the query string
+      const response = await fetch(`https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties${queryString}`);
+      const data = await response.json();
 
-        if (data.length === 0) {
-          setSearchResults([]);
-          setSearchError('No properties available in this city.');
-        } else {
-          let filteredData = data;
+      // Process the search results
+      console.log('Search results:', data);
 
-          if (maxPrice) {
-            filteredData = filteredData.filter((result) => result.price <= maxPrice);
-          }
+      if (data.length === 0) {
+        setSearchResults([]);
+        setSearchError('No properties available in this city.');
+      } else {
+        let filteredData = data;
 
-          if (minSquareMeters) {
-            filteredData = filteredData.filter((result) => result.squareMeters >= minSquareMeters);
-          }
-
-          const modifiedData = filteredData.map((result) => ({
-            id: result._id,
-            description: result.description,
-            category: result.category,
-            realtor: result.realtor,
-            price: result.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '),
-            currency: result.currency,
-            squareMeters: result.squareMeters,
-            unitOfArea: result.unitOfArea,
-            address: {
-              street: result.address.street,
-              streetNumber: result.address.streetNumber
-            },
-            mainImg: result.mainImg
-          }));
-
-          setSearchResults(modifiedData);
-          setSearchError('');
+        if (maxPrice) {
+          filteredData = filteredData.filter((result) => result.price <= maxPrice);
         }
-      })
-      .catch((error) => {
-        console.error('Error performing search:', error);
-        setSearchError('An error occurred while performing the search. Please try again later.');
-      });
+
+        if (minSquareMeters) {
+          filteredData = filteredData.filter((result) => result.squareMeters >= minSquareMeters);
+        }
+
+        const modifiedData = filteredData.map((result) => ({
+          id: result._id,
+          description: result.description,
+          category: result.category,
+          realtor: result.realtor,
+          price: result.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '),
+          currency: result.currency,
+          squareMeters: result.squareMeters,
+          unitOfArea: result.unitOfArea,
+          address: {
+            street: result.address.street,
+            streetNumber: result.address.streetNumber
+          },
+          mainImg: result.mainImg
+        }));
+
+        setSearchResults(modifiedData);
+        setSearchError('');
+      }
+    } catch (error) {
+      console.error('Error performing search:', error);
+      setSearchError('An error occurred while performing the search. Please try again later.');
+    }
   };
 
   // Default search results
@@ -132,24 +133,48 @@ export const Search = () => {
           placeholder="Search by city"
           value={searchTerm}
           onChange={handleSearchChange} />
-        <SearchInput
-          type="number"
-          placeholder="Max Price"
-          min="0"
-          value={maxPrice}
-          onChange={handleMaxPriceChange} />
-        <SearchInput
-          type="number"
-          placeholder="Min Square Meters"
-          min="0"
-          value={minSquareMeters}
-          onChange={handleMinSquareMetersChange} />
-        <SearchSelect value={category} onChange={handleCategoryChange}>
-          <option value="">All Categories</option>
-          <option value="house">House</option>
-          <option value="apartment">Apartment</option>
-          <option value="condo">Condo</option>
-        </SearchSelect>
+        <InlineInputs>
+          <Select value={category} onChange={handleCategoryChange}>
+            <option value="">Select category</option>
+            {categoryOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </Select>
+          <Select value={maxPrice} onChange={handleMaxPriceChange}>
+            <option value="">Max Price</option>
+            <option value="500000">€500,000</option>
+            <option value="1000000">€1,000,000</option>
+            <option value="2000000">€2,000,000</option>
+            <option value="3000000">€3,000,000</option>
+            <option value="4000000">€4,000,000</option>
+            <option value="5000000">€5,000,000</option>
+            <option value="6000000">€6,000,000</option>
+            <option value="7000000">€7,000,000</option>
+            <option value="8000000">€8,000,000</option>
+            <option value="9000000">€9,000,000</option>
+            <option value="10000000">€10,000,000</option>
+            <option value="11000000">€11,000,000</option>
+            <option value="12000000">€12,000,000</option>
+            <option value="13000000">€13,000,000</option>
+            <option value="14000000">€14,000,000</option>
+            <option value="15000000">€15,000,000</option>
+            <option value="20000000">€20,000,000</option>
+          </Select>
+          <Select value={minSquareMeters} onChange={handleMinSquareMetersChange}>
+            <option value="">Min Square Meters</option>
+            <option value="50">50 sqm</option>
+            <option value="60">60 sqm</option>
+            <option value="70">70 sqm</option>
+            <option value="80">80 sqm</option>
+            <option value="90">90 sqm</option>
+            <option value="100">100 sqm</option>
+            <option value="120">120 sqm</option>
+            <option value="150">150 sqm</option>
+            <option value="200">200 sqm</option>
+          </Select>
+        </InlineInputs>
         <SearchButton type="submit">Search</SearchButton>
       </SearchForm>
       {searchResults.length > 0 ? (
@@ -204,9 +229,27 @@ const SearchInput = styled.input`
   margin-right: 10px;
 `;
 
-const SearchSelect = styled.select`
-  padding: 10px;
-  margin-right: 10px;
+const InlineInputs = styled.div`
+display: flex;
+flex-direction: column;
+gap: 10px;
+
+@media (min-width: 900px) {
+  grid-column: 1 / span 3;
+  flex-direction: row;
+  }
+`;
+
+const Select = styled.select`
+padding: 12px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 4px;
+flex: 1;
+
+@media (min-width: 900px) {
+  flex: unset;
+}
 `;
 
 const SearchButton = styled.button`
