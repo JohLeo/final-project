@@ -68,15 +68,18 @@ export const ForSale = () => {
 // STYLING
 const SearchContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 8rem 0 0 0;
   `;
 
 const ImageContainer = styled.div`
-height: 10rem;
+height: 35rem;
   overflow: hidden;
-  margin-bottom: 10px;
   object-fit: cover;
+  margin: 1rem 0 1rem 0;
 `;
 
 const PropertyCard = styled.div`
@@ -84,9 +87,12 @@ const PropertyCard = styled.div`
   padding: 16px;
   margin: 16px;
   max-width: 90%;
-  text-align: center;
-  height: 350px;
-  width: 200px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  height: 750px;
+  width: 1200px;
+  justify-content: space-between;
 `;
 
 const StyledLink = styled(RouterLink)`
