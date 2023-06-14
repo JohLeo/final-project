@@ -14,13 +14,13 @@ export const Nav = () => {
         </LogoLink>
         <Links>
           <li>
-            <Link to="/forsale">FOR SALE</Link>
+            <Link to="/forsale">for sale</Link>
           </li>
           <li>
-            <Link to="/aboutus">ABOUT</Link>
+            <Link to="/aboutus">about</Link>
           </li>
           <li>
-            <Link to="/contact">CONTACT</Link>
+            <Link to="/contact">contact</Link>
           </li>
         </Links>
         <div>
@@ -68,8 +68,9 @@ const Links = styled.ul`
     a {
       text-decoration: none;
       color: #fffaf2;
-      font-size: 23px;
-      font-weight: 700;
+      font-size: 18px;
+      font-weight: 300;
+      text-transform: uppercase;
     }
   }
 

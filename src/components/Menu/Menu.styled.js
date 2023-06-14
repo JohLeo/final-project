@@ -41,7 +41,7 @@ export const StyledMenu = styled.nav`
     padding: 2rem 0;
     font-weight: bold;
     letter-spacing: 0.5rem;
-    color: black;
+    color: var(--text);
     text-decoration: none;
     transition: color 0.3s linear;
     
