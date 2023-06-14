@@ -6,6 +6,11 @@ import Menu from './Menu/Menu';
 
 export const Nav = () => {
   const [open, setOpen] = useState(false);
+
+  const closeMenu = () => {
+    setOpen(false);
+  };
+
   return (
     <Navbar>
       <NavbarLinks>
@@ -14,18 +19,24 @@ export const Nav = () => {
         </LogoLink>
         <Links>
           <li>
-            <Link to="/forsale">for sale</Link>
+            <Link to="/forsale" onClick={closeMenu}>
+              FOR SALE
+            </Link>
           </li>
           <li>
-            <Link to="/aboutus">about</Link>
+            <Link to="/aboutus" onClick={closeMenu}>
+              ABOUT
+            </Link>
           </li>
           <li>
-            <Link to="/contact">contact</Link>
+            <Link to="/contact" onClick={closeMenu}>
+              CONTACT
+            </Link>
           </li>
         </Links>
         <div>
           <Burger open={open} setOpen={setOpen} />
-          <Menu open={open} setOpen={setOpen} />
+          <Menu open={open} closeMenu={closeMenu} />
         </div>
       </NavbarLinks>
     </Navbar>
@@ -68,9 +79,8 @@ const Links = styled.ul`
     a {
       text-decoration: none;
       color: #fffaf2;
-      font-size: 18px;
-      font-weight: 300;
-      text-transform: uppercase;
+      font-size: 23px;
+      font-weight: 700;
     }
   }
 
