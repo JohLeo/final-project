@@ -1,18 +1,18 @@
 import React from 'react';
-import { bool } from 'prop-types';
+import { bool, func } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { StyledMenu } from './Menu.styled';
 
-const Menu = ({ open }) => {
+const Menu = ({ open, closeMenu }) => {
   return (
     <StyledMenu open={open}>
-      <Link to="/forsale" aria-label="for sale">
+      <Link to="/forsale" aria-label="for sale" onClick={closeMenu}>
         for sale
       </Link>
-      <Link to="/aboutus" aria-label="about us">
+      <Link to="/aboutus" aria-label="about us" onClick={closeMenu}>
         about us
       </Link>
-      <Link to="/contact" aria-label="contact">
+      <Link to="/contact" aria-label="contact" onClick={closeMenu}>
         contact
       </Link>
     </StyledMenu>
@@ -20,6 +20,8 @@ const Menu = ({ open }) => {
 };
 
 Menu.propTypes = {
-  open: bool.isRequired
-}
+  open: bool.isRequired,
+  closeMenu: func.isRequired
+};
+
 export default Menu;
