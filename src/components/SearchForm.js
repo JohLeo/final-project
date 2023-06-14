@@ -32,36 +32,28 @@ export const Search = () => {
 
   const handleSearchSubmit = async (event) => {
     event.preventDefault();
-
     // Build the query string based on the search parameters
     let queryString = `?location=${searchTerm}`;
-
     if (category) {
       queryString += `&type=${category}`;
     }
-
     try {
       // Perform the search with the query string
       const response = await fetch(`https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties${queryString}`);
       const data = await response.json();
-
       // Process the search results
       console.log('Search results:', data);
-
-      if (data.length === 0) {
+      let filteredData = data;
+      if (maxPrice) {
+        filteredData = filteredData.filter((result) => result.price <= maxPrice);
+      }
+      if (minSquareMeters) {
+        filteredData = filteredData.filter((result) => result.squareMeters >= minSquareMeters);
+      }
+      if (filteredData.length === 0) {
         setSearchResults([]);
-        setSearchError('Sorry city not found, we only operate in Stockholm, Helsingborg and Malmö at the moment.');
+        setSearchError('No properties found with the given criteria.');
       } else {
-        let filteredData = data;
-
-        if (maxPrice) {
-          filteredData = filteredData.filter((result) => result.price <= maxPrice);
-        }
-
-        if (minSquareMeters) {
-          filteredData = filteredData.filter((result) => result.squareMeters >= minSquareMeters);
-        }
-
         const modifiedData = filteredData.map((result) => ({
           id: result._id,
           description: result.description,
@@ -77,7 +69,6 @@ export const Search = () => {
           },
           mainImg: result.mainImg
         }));
-
         setSearchResults(modifiedData);
         setSearchError('');
       }
@@ -98,7 +89,6 @@ export const Search = () => {
 
         if (data.length === 0) {
           setSearchResults([]);
-          setSearchError('Sorry city not found, we only operate in Stockholm, Helsingborg and Malmö at the moment.');
         } else {
           const defaultResults = data.slice(0, 3).map((result) => ({
             id: result._id,
@@ -121,8 +111,8 @@ export const Search = () => {
         }
       })
       .catch((error) => {
-        console.error('Error performing search:', error);
-        setSearchError('An error occurred while performing the search. Please try again later.');
+        console.error('Error performing default search:', error);
+        setSearchError('An error occurred while performing the default search. Please try again later.');
       });
   }, []);
 
