@@ -1,18 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useLocation } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import Burger from './Burger/Burger';
 import Menu from './Menu/Menu';
 
 export const Nav = () => {
   const [open, setOpen] = useState(false);
+  const textColor = useSelector((state) => state.menu.textColor);
+  const dispatch = useDispatch();
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/properties/:id') {
+      dispatch({ type: 'menu/setTextColor', payload: 'black' });
+    } else {
+      dispatch({ type: 'menu/setTextColor', payload: 'white' });
+    }
+  }, [location, dispatch]);
+
   return (
     <Navbar>
       <NavbarLinks>
         <LogoLink to="/">
-          <Logo>Logo</Logo>
+          <Logo textColor={textColor}>Logo</Logo>
         </LogoLink>
-        <Links>
+        <Links textColor={textColor}>
           <li>
             <Link to="/forsale">for sale</Link>
           </li>
@@ -44,7 +58,7 @@ const NavbarLinks = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-`
+`;
 
 const LogoLink = styled(Link)`
   text-decoration: none;
@@ -54,7 +68,7 @@ const Logo = styled.div`
   font-size: 20px;
   font-weight: bold;
   margin-left: 2rem;
-  color: #fffaf2;
+  color: ${(props) => props.textColor};
 `;
 
 const Links = styled.ul`
@@ -67,14 +81,10 @@ const Links = styled.ul`
 
     a {
       text-decoration: none;
-      color: #fffaf2;
+      color: ${(props) => props.textColor};
       font-size: 18px;
       font-weight: 300;
       text-transform: uppercase;
     }
-  }
-
-  @media (max-width: 768px) {
-    display: none;
   }
 `;
