@@ -4,7 +4,7 @@ export const HeadImage = styled.div`
   background-image: url('https://i.postimg.cc/BnqwFZXs/pexels-daniel-frank-1111766.jpg');
   background-size: cover;
   background-position: center;
-  position: relative;
+  position: static;
   height: 400px;
   margin: 0;
 `;

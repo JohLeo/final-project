@@ -1,9 +1,10 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/jsx-no-useless-fragment */
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
+import { SearchContainer, LocationImg, EstateInfo, PropertyCard } from './lib/Listings'
 
 // MAKE CONST OF API
 const API = 'https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties';
@@ -33,34 +34,27 @@ export const ForSale = () => {
         <SearchContainer>
           {propertyData.map((item, index) => (
             <React.Fragment key={item.id}>
+
               <PropertyCard>
-                <Link to={`/properties/${item._id}`}>
-                  <ImageContainer>
-                    <img src={item.mainImg} alt="Property" />
-                  </ImageContainer>
-                  <TextContainer>
-                    <p>
-                      {item.address.street} {item.address.streetNumber}
-                      <br />
-                      {item.address.postalCode}, {item.address.city}
-                      <br />
-                      {item.price
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}{' '}
-                      {item.currency}, {item.squareMeters} {item.unitOfArea}
-                      <br />
-                    </p>
-                    <p>
-                      {item.category}
-                      <br />
-                      {item.description}
-                      <br />
-                    </p>
-                    <p>{item.realtor}</p>
-                  </TextContainer>
-                </Link>
+                <StyledLink to={`/properties/${item._id}`}>
+
+                  <LocationImg
+                    src={item.mainImg}
+                    alt="Property"
+                    ariaLabel="Image of estate" />
+
+                  <EstateInfo
+                    category={item.category}
+                    adress={`${item.address.street} ${item.address.streetNumber}`}
+                    city={item.address.city}
+                    price={`${item.price
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ${item.currency}`}
+                    room={item.roomNo}
+                    square={`${item.squareMeters} ${item.unitOfArea}`} />
+                </StyledLink>
+                {index < propertyData.length - 1 && <HorizontalLine />}
               </PropertyCard>
-              {index < propertyData.length - 1 && <HorizontalLine />}
             </React.Fragment>
           ))}
         </SearchContainer>
@@ -69,62 +63,21 @@ export const ForSale = () => {
   );
 };
 // STYLING
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const HorizontalLine = styled.div`
   width: 70%;
   height: 1px;
-  background-color: black;
-  margin: 16px auto;
+  background-color: var(--bg-grey);
+  margin: 36px auto 0;
 
   @media (max-width: 768px) {
     width: 90%;
     position: relative;
     left: 50%;
-    transform: translateX(-53%);
+    transform: translateX(-56%);
   }
 `;
 
-const SearchContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 7rem 16px;
-  overflow-x: hidden;
-
-  @media (max-width: 768px) {
-    margin: 7rem 0;
-    width: 95%;
-    margin-left: 3px;
-  }
-`;
-
-const ImageContainer = styled.div`
-height: 35rem;
-overflow: hidden;
-object-fit: cover;
-display: flex;
-align-items: center;
-justify-content: center;
-margin: 1rem 16px 1rem 0;
-`;
-
-const TextContainer = styled.div`
-    text-align: left;
-    flex: 1;
-`;
-
-const PropertyCard = styled.div`
-  padding: 16px;
-  width: 100%;
-  max-width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  @media (max-width: 768px) {
-    max-width: 90%;
-    flex-direction: row;
-  }
-`;

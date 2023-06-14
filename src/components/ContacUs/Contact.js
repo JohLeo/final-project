@@ -60,7 +60,7 @@ export const Contact = () => {
             </Icons>
 
             <Icons
-              href="https://www.hannahek.se"
+              href="https://www.hannahek.com"
               aria-label="Link to Hannahs Portfolio"
               target="_blank"
               rel="noopener noreferrer">

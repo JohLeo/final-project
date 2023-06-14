@@ -28,34 +28,34 @@ export const Realtor = ({ src, alt, ariaLabel }) => {
   );
 };
 
-export const Title = styled.p`
+const Title = styled.p`
  margin: 0;
  color: var(--text);
  font-size: 10px;
  font-weight: 300;
 `
-export const Name = styled.p`
+const Name = styled.p`
  margin: 0;
  color: var(--text);
  font-size: 14px;
  font-weight: 400;
  text-transform: uppercase;
 `
-export const Phone = styled.a`
+const Phone = styled.a`
  margin: 10px 0 0;
  color: var(--text);
  font-size: 14px;
  font-weight: 700;
  text-decoration: none;
 `
-export const Email = styled.a`
+const Email = styled.a`
  margin: 0;
  color: var(--text);
  font-size: 10px;
  font-weight: 500;
  text-decoration: none;
 `
-export const UsDetails = styled.div`
+const UsDetails = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: left;
