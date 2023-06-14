@@ -86,7 +86,7 @@ export const AboutUs = () => {
         <Link to="/">
           <Button
             type="submit"
-            text="Return" />
+            text="Back" />
         </Link>
       </ColumnLeft>
     </>
