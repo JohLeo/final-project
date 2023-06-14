@@ -5,7 +5,7 @@ import { Nav } from 'components/Navigation';
 import { AboutUs } from 'components/About/AboutUsClicked';
 import { ForSale } from 'components/ForSale';
 import { NotFound } from 'components/NotFound';
-import { Contact } from 'components/Contact';
+import { Contact } from 'components/ContacUs/Contact';
 import { PrivacyPolicy } from 'components/PrivacyPolicy';
 import { PropertyObject } from 'components/Objects/PropertyObject';
 import { Footer } from './components/Foot';

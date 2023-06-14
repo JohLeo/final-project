@@ -127,7 +127,7 @@ export const H6 = styled.h6`
 export const MainText = styled.p`
     color: var(--text);
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     margin: 10px 0 20px 0;
 `;
 

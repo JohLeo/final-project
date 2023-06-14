@@ -12,9 +12,9 @@ export const HeadImage = styled.div`
 export const MH1 = styled.h1`
   padding: 0;
   margin: 40px 20px 0;
-  color: #414142;
+  color: var(--text);
   font-size: 34px;
-  font-weight: 5s00;
+  font-weight: 400;
 `
 export const MH2 = styled.h3`
   margin: 12px 0 0 20px;

@@ -64,7 +64,7 @@ export const AboutUs = () => {
               ariaLabel="Picture of Sammy" />
             <ContactInfo
               title="Founder"
-              name="Sammyy Olsson"
+              name="Sammy Olsson"
               phone="+46 70 53 811 48"
               email="sammy@homeigo.se" />
           </AgentImg>
@@ -86,7 +86,7 @@ export const AboutUs = () => {
         <Link to="/">
           <Button
             type="submit"
-            text="Return" />
+            text="Back" />
         </Link>
       </ColumnLeft>
     </>
