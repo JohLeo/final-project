@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { ContactInfo } from '../lib/Realtors';
 import { ObjectMainImg,
   ObjectImg,
   OverH3,
@@ -14,7 +15,10 @@ import { ObjectMainImg,
   Label,
   Value,
   ItemDescription,
-  ObjectInfo } from './ObjectStyle'
+  ObjectInfo,
+  AgentBox,
+  SmallRealtor,
+  Headline } from './ObjectStyle';
 
 export const PropertyObject = () => {
   const { id } = useParams();
@@ -49,26 +53,11 @@ export const PropertyObject = () => {
       </ObjectMainImg>
       <ObjectInfo>
         <InfoDescription>
+          <Headline>
+            {property.headline}
+          </Headline>
           <MainText>
             {property.description} <br />
-          Step into this charming apartment that exudes elegance
-          with its light-filled spaces and stylish wood accents.
-          The open-concept living area showcases beautiful wood
-          flooring, creating a warm and inviting ambiance.
-          Natural light floods through large windows, illuminating
-          the space and enhancing the serene atmosphere.
-          The living room features a comfortable seating
-          arrangement, perfect for relaxation.
-          The kitchen boasts modern cabinetry that beautifully
-          complements the wood theme, while offering functionality
-          and style. The bedroom is a tranquil retreat,
-          adorned with wooden elements and designed to provide
-          utmost comfort. The bathroom is tastefully appointed,
-          featuring sleek fixtures and a seamless blend of light
-          tones and wooden textures. This apartment offers a
-          delightful combination of sophistication and natural
-          charm, creating an inviting sanctuary youll be proud
-          to call home.
           </MainText>
         </InfoDescription>
 
@@ -79,7 +68,18 @@ export const PropertyObject = () => {
           <PropertyInfo label="Size" value={`${property.squareMeters} ${property.unitOfArea}`} />
           <PropertyInfo label="Street Address" value={`${property.address.street} ${property.address.streetNumber}`} />
           <PropertyInfo label="City" value={property.address.city} />
-          <PropertyInfo label="Realtor" value={property.realtor} />
+
+          <AgentBox>
+            <SmallRealtor
+              src={property.realtorImg}
+              alt={property.realtor}
+              ariaLabel={property.realtor} />
+            <ContactInfo
+              title="Agent"
+              name={property.realtor}
+              phone={property.phoneNumber}
+              email={property.eMail} />
+          </AgentBox>
         </InfoDescription>
       </ObjectInfo>
 

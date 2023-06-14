@@ -176,7 +176,6 @@ export const Search = () => {
                 <SearchResultDetail>
                   <span>Address:</span> {result.address.street} {result.address.streetNumber}
                 </SearchResultDetail>
-                <SearchResultDescription>{result.description}</SearchResultDescription>
                 <SearchResultDetails>
                   <SearchResultDetail>
                     <span>Price:</span> {result.price} {result.currency}
@@ -261,10 +260,6 @@ const SearchResultContent = styled.div`
 const SearchResultCategory = styled.h3`
   margin: 1rem 0 0 0;
   font-size: 18px;
-`;
-
-const SearchResultDescription = styled.p`
-  margin: 10px 0;
 `;
 
 const SearchResultDetails = styled.div`
