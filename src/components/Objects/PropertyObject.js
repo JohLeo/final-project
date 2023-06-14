@@ -66,6 +66,7 @@ export const PropertyObject = () => {
           <PropertyInfo label="Housing type" value={property.category} />
           <PropertyInfo label="Price" value={`${property.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ${property.currency}`} />
           <PropertyInfo label="Size" value={`${property.squareMeters} ${property.unitOfArea}`} />
+          <PropertyInfo label="Number of rooms" value={`${property.roomNo}`} />
           <PropertyInfo label="Street Address" value={`${property.address.street} ${property.address.streetNumber}`} />
           <PropertyInfo label="City" value={property.address.city} />
 
