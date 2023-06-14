@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const BingMap = () => {
+const Map = () => {
   const navigate = useNavigate();
   const [properties, setProperties] = useState([]);
 
@@ -74,4 +74,4 @@ const BingMap = () => {
   );
 };
 
-export default BingMap;
+export default Map;
