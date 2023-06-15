@@ -34,7 +34,7 @@ align-items: center;
 
 const IntroImage = styled.img`
   width: 100%;
-  max-width: 350px;
+  max-width: 260px;
   height: 100%;
   margin: 7rem;
   border: 20px solid white;

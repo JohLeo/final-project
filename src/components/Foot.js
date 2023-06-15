@@ -1,6 +1,6 @@
 // IMPORT MODULES
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -11,7 +11,11 @@ export const Footer = () => {
   return (
     <FooterContainer>
       <LogoLink to="/">
-        <Logo>Logo</Logo>
+        <Logo>
+          <LogoImg
+            src="https://i.postimg.cc/GtsjHZLD/HomeiGo.png"
+            alt="HomeIGo logo" />
+        </Logo>
       </LogoLink>
       <RightContainer>
         <Links>
@@ -26,9 +30,23 @@ export const Footer = () => {
           </li>
         </Links>
         <SocialIcons>
-          <FontAwesomeIcon icon={faFacebook} style={{ fontSize: '1.6rem' }} />
-          <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '1.6rem' }} />
-          <FontAwesomeIcon icon={faEnvelopeOpen} style={{ fontSize: '1.6rem' }} />
+          <a
+            href="https://www.facebook.com/homeigo"
+            target="_blank"
+            rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faFacebook} style={{ fontSize: '1.4rem' }} />
+
+          </a>
+          <a
+            href="https://www.instagram.com/homeigo"
+            target="_blank"
+            rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '1.4rem' }} />
+          </a>
+          <a
+            href="mailto:info@homeigo.se">
+            <FontAwesomeIcon icon={faEnvelopeOpen} style={{ fontSize: '1.4rem' }} />
+          </a>
         </SocialIcons>
       </RightContainer>
     </FooterContainer>
@@ -36,13 +54,27 @@ export const Footer = () => {
 };
 
 // STYLING
+
+const Logo = styled.div`
+  @media (max-width: 768px) {
+    align-self: flex-start; 
+    margin-left: 0.5rem;
+    margin-bottom: 1rem; 
+  }
+`;
+const LogoImg = styled.img`
+  width: 150px;
+  height: 100%;
+  margin: 10px 40px;
+`;
+
 export const FooterContainer = styled.footer`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   justify-content: space-between;
-  height: 20rem;
+  height: 13rem;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -54,19 +86,6 @@ export const FooterContainer = styled.footer`
 
 const LogoLink = styled(Link)`
   text-decoration: none;
-`;
-
-export const Logo = styled.div`
-  color: black;
-  font-size: 2rem; 
-  left: 0;
-  margin: 0 0 0 10rem;
-
-  @media (max-width: 768px) {
-    align-self: flex-start; 
-    margin-left: 0.5rem;
-    margin-bottom: 1rem; 
-  }
 `;
 
 export const RightContainer = styled.div`
@@ -85,7 +104,7 @@ export const Links = styled.ul`
   flex-direction: column;
   justify-content: center;
   list-style: none;
-  margin: 0 10rem 0 0;
+  margin: 0 4rem 0 0;
   gap: 1rem;
 
   li {
@@ -93,7 +112,7 @@ export const Links = styled.ul`
 
     a {
       text-decoration: none;
-      color: #000;
+      color: var(--text);
       white-space: nowrap;
 
       &:hover {
@@ -110,6 +129,7 @@ export const Links = styled.ul`
 export const SocialIcons = styled.div`
   display: flex;
   align-items: center;
+  color: var(--text);
   gap: 1rem;
   right: 1rem;
   margin: 1rem 0 0 2.5rem;

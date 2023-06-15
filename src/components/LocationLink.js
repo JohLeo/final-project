@@ -36,8 +36,14 @@ export const LocationSection = () => {
 
 const LocationSectionContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin: 35px 0;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  margin: 35px auto;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
 `;

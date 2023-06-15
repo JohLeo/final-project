@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { LocationSection } from 'components/LocationLink';
-import { Search } from './SearchForm';
+import { Search } from './SearchComp/SearchForm';
 import { IntroPage } from './Intro/Intro';
 import { About } from './About/AboutUs'
 import Map from './Map';
@@ -25,10 +25,10 @@ export const StartPage = () => {
   return (
     <>
       <IntroPage />
+      <Search />
       <About />
       <LocationSection />
       <Map properties={properties} />
-      <Search />
     </>
   );
 };

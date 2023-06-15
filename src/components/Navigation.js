@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Burger from './Burger/Burger';
@@ -32,7 +32,9 @@ export const Nav = () => {
     <Navbar>
       <NavbarLinks>
         <LogoLink to="/">
-          <Logo textColor={textColor}>Logo</Logo>
+          <LogoImg
+            src="https://i.postimg.cc/GtsjHZLD/HomeiGo.png"
+            alt="HomeIGo logo" />
         </LogoLink>
         <Links textColor={textColor}>
           <li>
@@ -84,6 +86,12 @@ export const Nav = () => {
   );
 };
 
+const LogoImg = styled.img`
+  width: 150px;
+  height: 100%;
+  margin: 10px 40px;
+`;
+
 const Navbar = styled.nav`
   width: 100%;
   padding-top: 15px;
@@ -102,13 +110,6 @@ const NavbarLinks = styled.div`
 
 const LogoLink = styled(Link)`
   text-decoration: none;
-`;
-
-const Logo = styled.div`
-  font-size: 20px;
-  font-weight: bold;
-  margin-left: 2rem;
-  color: ${(props) => props.textColor};
 `;
 
 const Links = styled.ul`
