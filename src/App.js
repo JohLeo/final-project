@@ -5,9 +5,12 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Nav } from 'components/Navigation';
 import { AboutUs } from 'components/About/AboutUsClicked';
+import { Contact } from 'components/ContacUs/Contact';
+import { Apartments } from 'components/Apartments';
+import { Houses } from 'components/Houses';
+import { HolidayHomes } from 'components/HolidayHomes';
 import { ForSale } from 'components/ForSale';
 import { NotFound } from 'components/NotFound';
-import { Contact } from 'components/ContacUs/Contact';
 import { PrivacyPolicy } from 'components/PrivacyPolicy';
 import { PropertyObject } from 'components/Objects/PropertyObject';
 import menu from 'reducers/menu';
@@ -32,6 +35,9 @@ export const App = () => {
             <Route path="/forsale" element={<ForSale />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/properties/:id" element={<PropertyObject />} />
+            <Route path="/houses" element={<Houses />} />
+            <Route path="/apartments" element={<Apartments />} />
+            <Route path="/holidayhomes" element={<HolidayHomes />} />
             <Route path="/privacypolicy" element={<PrivacyPolicy />} />
             <Route path="*" element={<Navigate to="/404" replace />} />
             <Route path="/404" element={<NotFound />} />
