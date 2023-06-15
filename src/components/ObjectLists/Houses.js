@@ -33,9 +33,8 @@ export const Houses = () => {
       ) : (
         <SearchContainer>
           <TopSec>
-            <ListingH1>All holiday homes available</ListingH1>
+            <ListingH1>All houses available</ListingH1>
           </TopSec>
-          <ListingH1>All houses available</ListingH1>
           {propertyData.map((item) => (
             <React.Fragment key={item.id}>
 
