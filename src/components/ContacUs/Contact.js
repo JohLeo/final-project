@@ -20,7 +20,7 @@ export const Contact = () => {
             title="Full-stack developer"
             name="Hannah Ek"
             phone="+46 70 67 118 04"
-            email="hannahek@gmail.com" />
+            email="ekhannahek@gmail.com" />
 
           <ContactIntro>
           Hannah is a skilled web developer with a diverse professional

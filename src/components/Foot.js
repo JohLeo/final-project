@@ -26,9 +26,15 @@ export const Footer = () => {
           </li>
         </Links>
         <SocialIcons>
-          <FontAwesomeIcon icon={faFacebook} style={{ fontSize: '1.6rem' }} />
-          <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '1.6rem' }} />
-          <FontAwesomeIcon icon={faEnvelopeOpen} style={{ fontSize: '1.6rem' }} />
+          <a href="https://www.facebook.com/homeigo" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faFacebook} style={{ fontSize: '1.6rem' }} />
+          </a>
+          <a href="https://www.instagram.com/homeigo" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '1.6rem' }} />
+          </a>
+          <a href="mailto:info@homeigo.se">
+            <FontAwesomeIcon icon={faEnvelopeOpen} style={{ fontSize: '1.6rem' }} />
+          </a>
         </SocialIcons>
       </RightContainer>
     </FooterContainer>
