@@ -1,10 +1,10 @@
 import styled from 'styled-components/macro';
 
 export const HeadImage = styled.div`
+  position: static;
   background-image: url('https://i.postimg.cc/BnqwFZXs/pexels-daniel-frank-1111766.jpg');
   background-size: cover;
   background-position: center;
-  position: static;
   height: 400px;
   margin: 0;
 `;
