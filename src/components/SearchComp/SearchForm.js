@@ -15,7 +15,6 @@ import { Container,
 import { SearchContainer, EstateInfo } from '../lib/Listings'
 
 export const Search = () => {
-  // State variables for search inputs, results, and error messages
   const [searchTerm, setSearchTerm] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [minSquareMeters, setMinSquareMeters] = useState('');
@@ -24,7 +23,6 @@ export const Search = () => {
   const [searchError, setSearchError] = useState('');
   const categoryOptions = ['Apartment', 'House', 'Vacation Home'];
 
-  // Event handlers for input changes
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -53,6 +51,7 @@ export const Search = () => {
       const response = await fetch(`https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties${queryString}`);
       const data = await response.json();
       // Process the search results
+      console.log('Search results:', data);
       let filteredData = data;
       if (maxPrice) {
         filteredData = filteredData.filter((result) => result.price <= maxPrice);
@@ -77,7 +76,8 @@ export const Search = () => {
             street: result.address.street,
             streetNumber: result.address.streetNumber
           },
-          mainImg: result.mainImg
+          mainImg: result.mainImg,
+          roomNo: result.roomNo
         }));
         setSearchResults(modifiedData);
         setSearchError('');
@@ -95,6 +95,7 @@ export const Search = () => {
       .then((response) => response.json())
       .then((data) => {
         // Process the search results
+        console.log('Default search results:', data);
 
         if (data.length === 0) {
           setSearchResults([]);
@@ -112,7 +113,8 @@ export const Search = () => {
               street: result.address.street,
               streetNumber: result.address.streetNumber
             },
-            mainImg: result.mainImg
+            mainImg: result.mainImg,
+            roomNo: result.roomNo
           }));
 
           setSearchResults(defaultResults);
