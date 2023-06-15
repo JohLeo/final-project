@@ -9,7 +9,7 @@ const EstateContainer = styled.div`
 
 const EstateImg = styled.img`
   object-fit: cover;
-  width: 95vw;
+  width: 85vw;
   height: 40vh;
   margin: 0 0 10px 0;
 
@@ -110,7 +110,6 @@ export const SearchContainer = styled.div`
   }
 
   @media (min-width: 1025px) {
-    width: 1200px;
     margin: 100px auto;
   }
 `;
