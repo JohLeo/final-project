@@ -22,7 +22,6 @@ import { ObjectMainImg,
 
 export const PropertyObject = () => {
   const { id } = useParams();
-  console.log('Property ID:', id);
   const [property, setProperty] = useState('');
 
   useEffect(() => {

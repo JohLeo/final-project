@@ -1,7 +1,25 @@
-import styled from 'styled-components/macro';
+import styled, { keyframes } from 'styled-components/macro';
+
+const slideIn = keyframes`
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`;
+
+const slideOut = keyframes`
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+`;
 
 export const StyledMenu = styled.nav`
-  display: ${({ open }) => (open ? 'flex' : 'none')};
+  display: flex;
   flex-direction: column;
   justify-content: center;
   background: white;
@@ -11,10 +29,12 @@ export const StyledMenu = styled.nav`
   position: absolute;
   top: 0;
   right: 0;
-  transition: transform 0.3s ease-in-out;
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+  transition: transform 0.3s ease-in-out;
   overflow: hidden;
   z-index: 999;
+  animation: ${({ open }) => (open ? slideIn : slideOut)} 0.3s ease-in-out;
+
 
   @media (max-width: 768px) {
     width: 100%;

@@ -16,6 +16,10 @@ export const Nav = () => {
     const isBlackText = location.pathname.includes('/contact')
       || location.pathname.includes('/forsale')
       || location.pathname.includes('/properties')
+      || location.pathname.includes('/houses')
+      || location.pathname.includes('/holidayhomes')
+      || location.pathname.includes('/apartments')
+      || location.pathname.includes('/privacypolicy');
 
     dispatch({ type: 'menu/setTextColor', payload: isBlackText ? 'black' : 'white' });
 
