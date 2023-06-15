@@ -66,7 +66,6 @@ export const ErrorMessage = styled.p`
 `;
 
 export const SearchFindCard = styled.div`
-  padding: 16px;
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -78,7 +77,7 @@ export const SearchFindImg = styled.img`
   object-fit: cover;
   width: 95vw;
   height: 40vh;
-  margin: 0 0 10px 0;
+  margin: 20px 0 0 0;
 
   @media (min-width: 635px) { 
     height: 60vh;

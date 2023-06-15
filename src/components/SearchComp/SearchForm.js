@@ -129,7 +129,7 @@ export const Search = () => {
     <>
       <Container>
 
-        <SearchH1>Find your home </SearchH1>
+        <SearchH1>Find your home</SearchH1>
         <SearchForm onSubmit={handleSearchSubmit}>
           <Input
             type="text"
@@ -198,7 +198,6 @@ export const Search = () => {
                   price={`${result.price
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ${result.currency}`}
-                  room={result.roomNo}
                   square={`${result.squareMeters} ${result.unitOfArea}`} />
                 <StyledLink to={`/properties/${result.id}`}>View Details</StyledLink>
 

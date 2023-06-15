@@ -5,13 +5,14 @@ const EstateContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: left;
+  margin-top: 10px;
 `;
 
 const EstateImg = styled.img`
   object-fit: cover;
   width: 85vw;
   height: 40vh;
-  margin: 0 0 10px 0;
+  margin: 20px 0 10px 0;
 
   @media (min-width: 635px) { 
     height: 60vh;
@@ -75,7 +76,7 @@ export const EstateInfo = ({ adress, city, category, room, square, price }) => {
       <City>{city}</City>
       <Data>
         {room}{' '}
-        <span style={{ margin: '0 10px' }}>{square}</span>
+        <span style={room ? { margin: '0 10px' } : { margin: '0 10px 0 0' }}>{square}</span>
         {price}
       </Data>
     </EstateContainer>
@@ -104,6 +105,7 @@ export const SearchContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 80px;
+  justify-content: center;
 
   @media (min-width: 769px) {
     justify-content: center;
@@ -113,3 +115,16 @@ export const SearchContainer = styled.div`
     margin: 100px auto;
   }
 `;
+
+export const ListingH1 = styled.h1`
+  margin: 90px 10px 0;
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 200;
+  text-transform: uppercase;
+
+  @media (min-width: 426px) {
+    font-size: 34px;
+    margin: 90px 30px 0;
+  }
+`
