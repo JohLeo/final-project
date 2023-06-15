@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
-import Loading from './Loading';
-import { SearchContainer, LocationImg, EstateInfo, PropertyCard } from './lib/Listings'
+import Loading from '../Loading';
+import { SearchContainer, LocationImg, EstateInfo, PropertyCard } from '../lib/Listings'
 
 // MAKE CONST OF API
 const API = 'https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties';
