@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,45 +22,49 @@ const Map = () => {
   }, []);
 
   useEffect(() => {
-    // Callback function to initialize the map
-    window.initMap = () => {
-      const mapOptions = {
-        credentials: 'AgTgqtt7fZyKR5DLzQKkdxlkvK1i4egLlVkYOY612APv9RisryM8jiKqz-OcxcLX',
-        center: new window.Microsoft.Maps.Location(59.33205084980061, 18.084713755375606),
-        zoom: 15,
-        mapTypeId: window.Microsoft.Maps.MapTypeId.roadmap
-      };
-
-      const map = new window.Microsoft.Maps.Map(document.getElementById('map'), mapOptions);
-
-      // Add pushpins for each property
-      properties.forEach((property) => {
-        const location = new window.Microsoft.Maps.Location(property.latitude, property.longitude);
-        const pin = new window.Microsoft.Maps.Pushpin(location);
-
-        window.Microsoft.Maps.Events.addHandler(pin, 'click', () => {
-          navigate(`/properties/${property._id}`);
-        });
-
-        map.entities.push(pin);
-      });
-
-      // Cleanup resources when the component is unmounted
-      return () => {
-        map.dispose();
-        window.initMap = undefined;
-      };
-    };
+    const apiKey = 'AgTgqtt7fZyKR5DLzQKkdxlkvK1i4egLlVkYOY612APv9RisryM8jiKqz-OcxcLX';
 
     const loadMap = () => {
       // Load the Bing Maps script dynamically
       const script = document.createElement('script');
-      script.src = 'https://www.bing.com/api/maps/mapcontrol?key=AgTgqtt7fZyKR5DLzQKkdxlkvK1i4egLlVkYOY612APv9RisryM8jiKqz-OcxcLX&callback=initMap';
+      script.src = `https://www.bing.com/api/maps/mapcontrol?key=${apiKey}&callback=initMap`;
       script.async = true;
       document.body.appendChild(script);
     };
 
-    loadMap();
+    if (properties.length > 0) {
+      // Callback function to initialize the map
+      window.initMap = () => {
+        const mapOptions = {
+          credentials: apiKey,
+          center: new window.Microsoft.Maps.Location(59.33205084980061, 18.084713755375606),
+          zoom: 15,
+          mapTypeId: window.Microsoft.Maps.MapTypeId.roadmap
+        };
+
+        const map = new window.Microsoft.Maps.Map(document.getElementById('map'), mapOptions);
+
+        // Add pushpins for each property
+        properties.forEach((property) => {
+          const location = new window.Microsoft.Maps.Location(property.latitude, property.longitude);
+          const pin = new window.Microsoft.Maps.Pushpin(location);
+
+          window.Microsoft.Maps.Events.addHandler(pin, 'click', () => {
+            navigate(`/properties/${property._id}`);
+          });
+
+          map.entities.push(pin);
+        });
+
+        // Cleanup resources when the component is unmounted
+        return () => {
+          map.dispose();
+          window.initMap = undefined;
+        };
+      };
+
+      loadMap();
+    }
   }, [properties, navigate]);
 
   return (
