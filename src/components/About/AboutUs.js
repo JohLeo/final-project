@@ -77,14 +77,15 @@ const UsH1 = styled.h1`
   margin: 0;
   color: var(--text);
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 200;
+  text-transform: uppercase;
 `
-const UsH3 = styled.h1`
+const UsH3 = styled.h3`
   padding: 0 28px;
   margin: 0;
   color: var(--text);
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 300;
 `
 
 const UsImage = styled.img`

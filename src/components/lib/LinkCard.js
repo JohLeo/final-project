@@ -8,9 +8,9 @@ const OverlayText = styled.div`
 
 const LinkImage = styled.img`
   width: 100%;
-  max-width: 350px;
+  max-width: 300px;
   height: 100%;
-  margin: 10px;
+  margin: auto;
 `;
 
 const LocationText = styled.div`
