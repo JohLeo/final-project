@@ -116,6 +116,12 @@ export const SearchContainer = styled.div`
   }
 `;
 
+export const TopSec = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+`
+
 export const ListingH1 = styled.h1`
   margin: 90px 10px 0;
   color: var(--text);
