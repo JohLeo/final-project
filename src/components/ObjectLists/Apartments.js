@@ -6,26 +6,25 @@ import { Link } from 'react-router-dom';
 import Loading from '../Loading';
 import { SearchContainer, LocationImg, EstateInfo, PropertyCard } from '../lib/Listings'
 
-// MAKE CONST OF API
+// Make const of API.
 const API = 'https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties';
 
 export const Apartments = () => {
-  // DEFINE STATE VARIABLE TO STORE PROPERTY DATA
+  // Define state variable to store property data.
   const [propertyData, setPropertyData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // FETCH PROPERTY DATA FROM THE API WHEN THE COMPONENT MOUNTS
+  // Fetch property data from the API when the component mounts.
   useEffect(() => {
     fetch(API)
       .then((res) => res.json())
       .then((responseData) => {
         setPropertyData(responseData);
         setTimeout(() => setIsLoading(false), 3000);
-        console.log(responseData); // CONSOLE LOGGING THE JSON - WE CAN REMOVE THIS BEFORE DEPLOY
       });
   }, []);
 
-  // RENDER THE COMPONENT
+  // Render the component.
   return (
     <>
       {isLoading ? (

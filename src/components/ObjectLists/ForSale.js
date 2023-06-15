@@ -6,24 +6,23 @@ import { Link } from 'react-router-dom';
 import Loading from '../Loading';
 import { SearchContainer, LocationImg, EstateInfo, PropertyCard } from '../lib/Listings'
 
-// MAKE CONST OF API
+// Make const of API.
 const API = 'https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties';
 
 export const ForSale = () => {
-  // DEFINE STATE VARIABLE TO STORE PROPERTY DATA
+  // Define state variable to store property data.
   const [propertyData, setPropertyData] = useState([]);
 
-  // FETCH PROPERTY DATA FROM THE API WHEN THE COMPONENT MOUNTS
+  // Ftech property data from the API when the component mounts.
   useEffect(() => {
     fetch(API)
       .then((res) => res.json())
       .then((responseData) => {
         setPropertyData(responseData);
-        console.log(responseData); // CONSOLE LOGGING THE JSON - WE CAN REMOVE THIS BEFORE DEPLOY
       });
   }, []);
 
-  // RENDER THE COMPONENT
+  // Render the component.
   return (
     <>
       {propertyData.length === 0 ? (
@@ -60,7 +59,7 @@ export const ForSale = () => {
     </>
   );
 };
-// STYLING
+// Styling
 const StyledLink = styled(Link)`
   text-decoration: none;
 `;

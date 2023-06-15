@@ -7,9 +7,12 @@ import Menu from './Menu/Menu';
 
 export const Nav = () => {
   const [open, setOpen] = useState(false);
+  // Retrieve the text color from the Redux store
   const textColor = useSelector((state) => state.menu.textColor);
+  // Access the Redux dispatch function
   const dispatch = useDispatch();
 
+  // Get the current location from React Router
   const location = useLocation();
 
   useEffect(() => {
@@ -21,9 +24,11 @@ export const Nav = () => {
       || location.pathname.includes('/apartments')
       || location.pathname.includes('/privacypolicy');
 
+    // Dispatch an action to update the text color based on the current location
     dispatch({ type: 'menu/setTextColor', payload: isBlackText ? 'black' : 'white' });
 
     if (location.pathname === '/aboutus') {
+      // Override the text color to white for the "/aboutus" page
       dispatch({ type: 'menu/setTextColor', payload: 'white' });
     }
   }, [location, dispatch]);

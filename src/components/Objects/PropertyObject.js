@@ -25,11 +25,11 @@ export const PropertyObject = () => {
   const [property, setProperty] = useState('');
 
   useEffect(() => {
-    // Fetch the property information based on the ID
+    // Fetch the property information based on the ID.
     fetch(`https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        // Process the property data
+        // Process the property data.
         console.log('Property data:', data);
         setProperty(data);
       })
@@ -42,6 +42,7 @@ export const PropertyObject = () => {
     return <div>Loading...</div>;
   }
 
+  // Render the component.
   return (
     <>
       <ObjectMainImg>

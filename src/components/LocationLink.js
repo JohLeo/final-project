@@ -5,7 +5,7 @@ import { LocationImg } from './lib/LinkCard';
 
 export const LocationSection = () => {
   const handleClick = () => {
-    window.scrollTo(0, 0); // TO PREVENT SITE FROM SCROLLING TO BOTTOM
+    window.scrollTo(0, 0); // Prevents site from scrolling to bottom.
   };
   return (
     <LocationSectionContainer>

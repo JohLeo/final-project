@@ -4,8 +4,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { StyledMenu } from './Menu.styled';
 
 const Menu = ({ open, setOpen }) => {
+  // Get the current location from React Router
   const location = useLocation();
 
+  // Close the menu when a link is clicked
   const handleLinkClick = () => {
     setOpen(false);
   };
@@ -49,7 +51,9 @@ const Menu = ({ open, setOpen }) => {
 };
 
 Menu.propTypes = {
+  // Prop indicating whether the menu is open or closed
   open: bool.isRequired,
+  // Callback function to set the menu state
   setOpen: func.isRequired
 };
 
