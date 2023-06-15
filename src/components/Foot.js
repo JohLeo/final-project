@@ -1,4 +1,4 @@
-// IMPORT MODULES
+// Importing the modules
 import React from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
 
-// COMPONENT
+// Component
 export const Footer = () => {
   return (
     <FooterContainer>
@@ -19,33 +19,43 @@ export const Footer = () => {
       </LogoLink>
       <RightContainer>
         <Links>
+          {/* ABOUT US link */}
           <li>
             <Link to="/aboutus">ABOUT US</Link>
           </li>
+          {/* PRIVACY POLICY link */}
           <li>
             <Link to="/privacypolicy">PRIVACY POLICY</Link>
           </li>
+          {/* CONTACT link */}
           <li>
             <Link to="/contact">CONTACT</Link>
           </li>
         </Links>
         <SocialIcons>
+          {/* Facebook link */}
           <a
             href="https://www.facebook.com/homeigo"
             target="_blank"
             rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faFacebook} style={{ fontSize: '1.4rem' }} />
-
+            <FontAwesomeIcon
+              icon={faFacebook}
+              style={{ fontSize: '1.4rem', color: 'var(--text)' }} />
           </a>
+          {/* Instagram link */}
           <a
             href="https://www.instagram.com/homeigo"
             target="_blank"
             rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '1.4rem' }} />
+            <FontAwesomeIcon
+              icon={faInstagram}
+              style={{ fontSize: '1.4rem', color: 'var(--text)' }} />
           </a>
-          <a
-            href="mailto:info@homeigo.se">
-            <FontAwesomeIcon icon={faEnvelopeOpen} style={{ fontSize: '1.4rem' }} />
+          {/* Email link */}
+          <a href="mailto:info@homeigo.se">
+            <FontAwesomeIcon
+              icon={faEnvelopeOpen}
+              style={{ fontSize: '1.4rem', color: 'var(--text)' }} />
           </a>
         </SocialIcons>
       </RightContainer>
@@ -53,15 +63,15 @@ export const Footer = () => {
   );
 };
 
-// STYLING
-
+// Styling
 const Logo = styled.div`
   @media (max-width: 768px) {
-    align-self: flex-start; 
+    align-self: flex-start;
     margin-left: 0.5rem;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
   }
 `;
+
 const LogoImg = styled.img`
   width: 150px;
   height: 100%;
@@ -89,15 +99,15 @@ const LogoLink = styled(Link)`
 `;
 
 export const RightContainer = styled.div`
-gap: 1rem;
-margin-right: 1rem;
-flex-direction: column;
-align-items: flex-end;
+  gap: 1rem;
+  margin-right: 1rem;
+  flex-direction: column;
+  align-items: flex-end;
 
-@media (max-width: 768px) {
-  width: 100%;
-}
-`
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
 
 export const Links = styled.ul`
   display: flex;
@@ -122,7 +132,7 @@ export const Links = styled.ul`
   }
 
   @media (max-width: 768px) {
-    padding-left: 0.5rem; 
+    padding-left: 0.5rem;
   }
 `;
 
