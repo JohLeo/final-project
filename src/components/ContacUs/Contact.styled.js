@@ -32,14 +32,14 @@ export const ContactContainter = styled.div`
 `;
 
 export const ContactH1 = styled.h1`
-  margin: 90px 10px 0;
+  margin: 140px 10px 0;
   color: var(--text);
   font-size: 34px;
   font-weight: 200;
   text-transform: uppercase;
 
   @media (min-width: 426px) {
-    margin: 90px 30px 0;
+    margin: 140px 30px 0;
   }
   `
 

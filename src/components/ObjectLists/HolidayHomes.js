@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading';
-import { SearchContainer, LocationImg, EstateInfo, PropertyCard } from '../lib/Listings'
+import { SearchContainer, LocationImg, EstateInfo, PropertyCard, ListingH1 } from '../lib/Listings'
 
 // Make const of API.
 const API = 'https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties';
@@ -31,6 +31,7 @@ export const HolidayHomes = () => {
         <Loading />
       ) : (
         <SearchContainer>
+          <ListingH1>All holiday homes available</ListingH1>
           {propertyData.map((item) => (
             <React.Fragment key={item.id}>
 
