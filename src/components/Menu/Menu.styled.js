@@ -56,7 +56,7 @@ export const StyledMenu = styled.nav`
     }
 
     &.black-link {
-      color: black;
+      color: var(--text);
     }
 
     &:hover {
