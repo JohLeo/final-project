@@ -1,9 +1,9 @@
 import React from 'react';
+import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import Button from 'components/lib/Button';
 import { ColumnLeft } from '../GlobalStyles';
-import { Realtor, ContactInfo } from '../lib/Realtors';
-import { HeadImage, MH1, MH2, MH3, UsText, AgentContainer, AgentImg } from './About.styled';
+import { Realtor } from '../lib/Realtors';
 
 export const AboutUs = () => {
   return (
@@ -14,7 +14,7 @@ export const AboutUs = () => {
         HOMEIGO
         </MH1>
         <MH2>
-        Where exceptional homes find their perfect match
+        Where exceptional homes find their perfect match.
         </MH2>
 
         <UsText>
@@ -50,11 +50,10 @@ export const AboutUs = () => {
               src="https://i.postimg.cc/G2v9LTzN/Guru-The-Hannah.png"
               alt="Hannah the Guru"
               ariaLabel="Picture of Hannah" />
-            <ContactInfo
-              title="Founder"
-              name="Hannah Ek"
-              phone="+46 70 53 811 46"
-              email="hannah@homeigo.se" />
+            <Title>Founder</Title>
+            <Name>Hannah Ek</Name>
+            <Phone href="tel:+46706735400">+46 70 53 811 46</Phone>
+            <Email href="mailto:hannah@guru.se">hannah@homeigo.se</Email>
           </AgentImg>
 
           <AgentImg>
@@ -62,11 +61,10 @@ export const AboutUs = () => {
               src="https://i.postimg.cc/hv7YgFkr/Sammy-The-Sally.png"
               alt="Sammy the proffessional"
               ariaLabel="Picture of Sammy" />
-            <ContactInfo
-              title="Founder"
-              name="Sammy Olsson"
-              phone="+46 70 53 811 48"
-              email="sammy@homeigo.se" />
+            <Title>Founder</Title>
+            <Name>Sally Olsson</Name>
+            <Phone href="tel:+46706735400">+46 70 53 811 48</Phone>
+            <Email href="mailto:hannah@guru.se">sammy@homeigo.se</Email>
           </AgentImg>
 
           <AgentImg>
@@ -74,11 +72,10 @@ export const AboutUs = () => {
               src="https://i.postimg.cc/T19wm8zJ/Jojo.png"
               alt="Johanna"
               ariaLabel="Picture of Johanna" />
-            <ContactInfo
-              title="Founder"
-              name="Johanna Leonsson"
-              phone="+46 70 63 800 47"
-              email="johanna@homeigo.se" />
+            <Title>Founder</Title>
+            <Name>Johanna Leonsson</Name>
+            <Phone href="tel:+46706735400">+46 70 638 00 47</Phone>
+            <Email href="mailto:johanna@leonsson.se">johanna@homeigo.se</Email>
           </AgentImg>
 
         </AgentContainer>
@@ -86,10 +83,105 @@ export const AboutUs = () => {
         <Link to="/">
           <Button
             type="submit"
-            text="Back" />
+            text="Return" />
         </Link>
       </ColumnLeft>
     </>
 
   )
 };
+
+const HeadImage = styled.div`
+  position: relative;
+  height: 400px;
+  margin: 0;
+
+  ::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.postimg.cc/BnqwFZXs/pexels-daniel-frank-1111766.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Set a lower negative z-index value */
+  }
+`;
+
+const MH1 = styled.h1`
+  padding: 0;
+  margin: 40px 20px 0;
+  color: #414142;
+  font-size: 34px;
+  font-weight: 5s00;
+`
+const MH2 = styled.h3`
+  margin: 12px 0 0 20px;
+  color: #414142;
+  font-size: 24px;
+  font-weight: 400;
+`
+const MH3 = styled.h3`
+  margin: 20px 0 0 20px;
+  padding: 0;
+  color: #414142;
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+
+`
+const UsText = styled.p`
+ padding: 0 2rem 1rem 0;
+ margin: 20px;
+ color: var(--text);
+ font-size: 14px;
+ font-weight: 300;
+`
+const AgentContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
+
+const AgentImg = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 15px;
+
+  @media (min-width: 375px) {
+    width: 42%;
+  }
+  @media (min-width: 768px) {
+    width: 18%;
+  }
+`
+const Title = styled.p`
+ margin: 0;
+ color: var(--text);
+ font-size: 10px;
+ font-weight: 300;
+`
+const Name = styled.p`
+ margin: 0;
+ color: var(--text);
+ font-size: 14px;
+ font-weight: 400;
+ text-transform: uppercase;
+`
+
+const Phone = styled.a`
+ margin: 10px 0 0;
+ color: var(--text);
+ font-size: 14px;
+ font-weight: 700;
+ text-decoration: none;
+`
+const Email = styled.a`
+ margin: 0;
+ color: var(--text);
+ font-size: 10px;
+ font-weight: 500;
+ text-decoration: none;
+`

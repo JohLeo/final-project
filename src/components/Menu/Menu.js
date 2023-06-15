@@ -1,18 +1,47 @@
 import React from 'react';
 import { bool, func } from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { StyledMenu } from './Menu.styled';
 
-const Menu = ({ open, closeMenu }) => {
+const Menu = ({ open, setOpen }) => {
+  const location = useLocation();
+
+  const handleLinkClick = () => {
+    setOpen(false);
+  };
+
   return (
     <StyledMenu open={open}>
-      <Link to="/forsale" aria-label="for sale" onClick={closeMenu}>
+      <Link
+        to="/forsale"
+        aria-label="for sale"
+        className={location.pathname.includes('/forsale') ? 'black-link' : ''}
+        onClick={handleLinkClick}>
         for sale
       </Link>
-      <Link to="/aboutus" aria-label="about us" onClick={closeMenu}>
+      <Link
+        to="/aboutus"
+        aria-label="about us"
+        className={
+          (location.pathname.includes('/aboutus') || location.pathname.includes('/contact'))
+          && !location.pathname.includes('/properties')
+            ? 'black-link'
+            : ''
+        }
+        onClick={handleLinkClick}>
         about us
       </Link>
-      <Link to="/contact" aria-label="contact" onClick={closeMenu}>
+      <Link
+        to="/contact"
+        aria-label="contact"
+        className={
+          location.pathname.includes('/contact')
+          || location.pathname.includes('/forsale')
+          || location.pathname.includes('/properties')
+            ? 'black-link'
+            : ''
+        }
+        onClick={handleLinkClick}>
         contact
       </Link>
     </StyledMenu>
@@ -21,7 +50,7 @@ const Menu = ({ open, closeMenu }) => {
 
 Menu.propTypes = {
   open: bool.isRequired,
-  closeMenu: func.isRequired
+  setOpen: func.isRequired
 };
 
 export default Menu;
