@@ -74,8 +74,8 @@ const Map = () => {
 
         // Cleanup resources when the component is unmounted
         return () => {
-          map.dispose();
-          window.initMap = undefined;
+          map.dispose(); // Dispose the map to release resources.
+          window.initMap = undefined; // Reset the `initMap` callback function.
         };
       };
 

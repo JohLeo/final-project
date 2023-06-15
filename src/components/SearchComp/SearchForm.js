@@ -15,6 +15,7 @@ import { Container,
 import { SearchContainer, EstateInfo } from '../lib/Listings'
 
 export const Search = () => {
+  // State variables for search inputs, results, and error messages.
   const [searchTerm, setSearchTerm] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [minSquareMeters, setMinSquareMeters] = useState('');
@@ -23,6 +24,7 @@ export const Search = () => {
   const [searchError, setSearchError] = useState('');
   const categoryOptions = ['Apartment', 'House', 'Vacation Home'];
 
+  // Event handlers for input changes.
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -41,17 +43,16 @@ export const Search = () => {
 
   const handleSearchSubmit = async (event) => {
     event.preventDefault();
-    // Build the query string based on the search parameters
+    // Build the query string based on the search parameters.
     let queryString = `?location=${searchTerm}`;
     if (category) {
       queryString += `&type=${category}`;
     }
     try {
-      // Perform the search with the query string
+      // Perform the search with the query string.
       const response = await fetch(`https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties${queryString}`);
       const data = await response.json();
-      // Process the search results
-      console.log('Search results:', data);
+      // Process the search results.
       let filteredData = data;
       if (maxPrice) {
         filteredData = filteredData.filter((result) => result.price <= maxPrice);
@@ -87,15 +88,13 @@ export const Search = () => {
     }
   };
 
-  // Default search results
+  // Default search results.
   useEffect(() => {
-    // Perform the search with default parameters
+    // Perform the search with default parameters.
     fetch('https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties')
       .then((response) => response.json())
       .then((data) => {
-        // Process the search results
-        console.log('Default search results:', data);
-
+        // Process the search results.
         if (data.length === 0) {
           setSearchResults([]);
         } else {
@@ -125,6 +124,7 @@ export const Search = () => {
       });
   }, []);
 
+  // Render the component.
   return (
     <>
       <Container>

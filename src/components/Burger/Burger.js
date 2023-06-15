@@ -5,6 +5,7 @@ import { StyledBurger } from './Burger.styled';
 
 const Burger = ({ open, setOpen }) => {
   const textColor = useSelector((state) => state.menu.textColor);
+  // Retrieve the `textColor` value from the Redux store using the `useSelector` hook.
 
   return (
     <StyledBurger open={open} onClick={() => setOpen(!open)} textColor={textColor}>
@@ -16,7 +17,9 @@ const Burger = ({ open, setOpen }) => {
 };
 
 Burger.propTypes = {
+  // Prop indicating whether the burger menu is open or closed.
   open: bool.isRequired,
+  // Callback function to set the burger menu state.
   setOpen: func.isRequired
 };
 

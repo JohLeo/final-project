@@ -11,15 +11,16 @@ export const StartPage = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
+        // Fetch properties data from the specified API endpoint
         const response = await fetch('https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties');
         const data = await response.json();
-        setProperties(data);
+        setProperties(data); // Update the state with the fetched properties data
       } catch (error) {
         console.error('Error fetching properties:', error);
       }
     };
 
-    fetchProperties();
+    fetchProperties(); // Invoke the fetchProperties function when the component mounts
   }, []);
 
   return (
