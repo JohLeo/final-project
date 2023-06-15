@@ -12,7 +12,6 @@ const API = 'https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties';
 export const ForSale = () => {
   // DEFINE STATE VARIABLE TO STORE PROPERTY DATA
   const [propertyData, setPropertyData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   // FETCH PROPERTY DATA FROM THE API WHEN THE COMPONENT MOUNTS
   useEffect(() => {
@@ -20,7 +19,6 @@ export const ForSale = () => {
       .then((res) => res.json())
       .then((responseData) => {
         setPropertyData(responseData);
-        setTimeout(() => setIsLoading(false), 3000);
         console.log(responseData); // CONSOLE LOGGING THE JSON - WE CAN REMOVE THIS BEFORE DEPLOY
       });
   }, []);
@@ -28,7 +26,7 @@ export const ForSale = () => {
   // RENDER THE COMPONENT
   return (
     <>
-      {isLoading ? (
+      {propertyData.length === 0 ? (
         <Loading />
       ) : (
         <SearchContainer>
