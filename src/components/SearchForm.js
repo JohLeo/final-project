@@ -90,7 +90,7 @@ export const Search = () => {
         if (data.length === 0) {
           setSearchResults([]);
         } else {
-          const defaultResults = data.slice(0, 3).map((result) => ({
+          const defaultResults = data.slice(0, 4).map((result) => ({
             id: result._id,
             description: result.description,
             category: result.category,
