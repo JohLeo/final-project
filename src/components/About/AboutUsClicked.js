@@ -61,7 +61,7 @@ export const AboutUs = () => {
               title="Founder"
               name="Hannah Ek"
               phone="+46 70 67 118 04"
-              email="hannahek@gmail.com" />
+              email="ekhannahek@gmail.com" />
           </AgentImg>
 
           <AgentImg>
