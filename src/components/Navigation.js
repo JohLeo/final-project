@@ -63,7 +63,7 @@ export const Nav = () => {
         </Links>
         <div>
           <Burger open={open} setOpen={setOpen} />
-          <Menu open={open} setOpen={setOpen} />
+          <Menu open={open} closeMenu={closeMenu} />
         </div>
       </NavbarLinks>
     </Navbar>

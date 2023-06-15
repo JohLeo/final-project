@@ -127,7 +127,7 @@ export const H6 = styled.h6`
 export const MainText = styled.p`
     color: var(--text);
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 300;
     margin: 10px 0 20px 0;
 `;
 
@@ -140,3 +140,28 @@ export const Value = styled.span`
   font-size: 15px;
   font-weight: 300;
 `;
+
+export const AgentBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 328px;
+  gap:10px;
+  border: solid 1px var(--bg-grey);
+  margin: 15px 0;
+  
+  `;
+
+export const SmallRealtor = styled.img`
+  width: 80px;
+  border: solid 4px #E6E6E8;
+  margin: 10px;
+`;
+
+export const Headline = styled.h2`
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 200;
+  text-transform: uppercase;
+  margin: 0;
+`

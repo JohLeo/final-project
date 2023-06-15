@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import Button from './lib/Button';
 
@@ -211,7 +211,7 @@ flex-wrap: wrap;
 justify-content: center;
 align-items: center;
 margin-bottom: 20px;
-gap: 10px;
+gap: 8px;
 
 @media (max-width: 425px) {
     flex-direction: column;
@@ -220,19 +220,23 @@ gap: 10px;
 `;
 
 const Input = styled.input`
-  padding: 8px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  padding: 0.8rem;
+  padding: 9px;
 `;
 
 const Select = styled.select`
-padding: 12px;
+padding: 9px;
 font-size: 16px;
 border: 1px solid #ccc;
 border-radius: 4px;
 flex: 1;
+
+/* Safari-specific styles */
+-webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 `;
 
 const SearchResults = styled.div`
