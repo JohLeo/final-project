@@ -1,5 +1,5 @@
-/* eslint-disable no-underscore-dangle */
 /* eslint-disable max-len */
+/* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -47,7 +47,23 @@ const Map = () => {
         // Add pushpins for each property
         properties.forEach((property) => {
           const location = new window.Microsoft.Maps.Location(property.latitude, property.longitude);
-          const pin = new window.Microsoft.Maps.Pushpin(location);
+
+          // Customized pushpin options
+          const pinOptions = {
+            color: 'grey'
+          };
+
+          const pin = new window.Microsoft.Maps.Pushpin(location, pinOptions);
+
+          // Event handler for hover effect
+          window.Microsoft.Maps.Events.addHandler(pin, 'mouseover', () => {
+            pin.setOptions({ color: 'white' }); // Change the pin color on hover.
+          });
+
+          // Event handler to remove hover effect
+          window.Microsoft.Maps.Events.addHandler(pin, 'mouseout', () => {
+            pin.setOptions({ color: 'grey' }); // Restore the pin color on non hover.
+          });
 
           window.Microsoft.Maps.Events.addHandler(pin, 'click', () => {
             navigate(`/properties/${property._id}`);
