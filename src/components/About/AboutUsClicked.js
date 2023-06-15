@@ -7,7 +7,7 @@ import { Realtor } from '../lib/Realtors';
 
 export const AboutUs = () => {
   return (
-    <>
+    <Container>
       <HeadImage />
       <ColumnLeft>
         <MH1>
@@ -86,28 +86,25 @@ export const AboutUs = () => {
             text="Return" />
         </Link>
       </ColumnLeft>
-    </>
+    </Container>
 
   )
 };
 
-const HeadImage = styled.div`
+const Container = styled.div`
   position: relative;
-  height: 400px;
-  margin: 0;
+`;
 
-  ::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://i.postimg.cc/BnqwFZXs/pexels-daniel-frank-1111766.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: -1; /* Set a lower negative z-index value */
-  }
+const HeadImage = styled.div`
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 400px;
+background-image: url('https://i.postimg.cc/BnqwFZXs/pexels-daniel-frank-1111766.jpg');
+background-size: cover;
+background-position: center;
+z-index: 1;
 `;
 
 const MH1 = styled.h1`

@@ -18,6 +18,10 @@ export const Nav = () => {
       || location.pathname.includes('/properties')
 
     dispatch({ type: 'menu/setTextColor', payload: isBlackText ? 'black' : 'white' });
+
+    if (location.pathname === '/aboutus') {
+      dispatch({ type: 'menu/setTextColor', payload: 'white' });
+    }
   }, [location, dispatch]);
 
   return (
@@ -81,6 +85,8 @@ const Navbar = styled.nav`
   padding-top: 15px;
   position: absolute;
   top: 0;
+  left: 0;
+  z-index: 2;
 `;
 
 const NavbarLinks = styled.div`
