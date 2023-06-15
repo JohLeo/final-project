@@ -38,7 +38,7 @@ export const Nav = () => {
       <NavbarLinks>
         <LogoLink to="/">
           <LogoImg
-            src="https://i.postimg.cc/GtsjHZLD/HomeiGo.png"
+            src="https://i.postimg.cc/90yTrKRD/homeigo-GR.png"
             alt="HomeIGo logo" />
         </LogoLink>
         <Links textColor={textColor}>

@@ -13,7 +13,7 @@ export const Footer = () => {
       <LogoLink to="/">
         <Logo>
           <LogoImg
-            src="https://i.postimg.cc/GtsjHZLD/HomeiGo.png"
+            src="https://i.postimg.cc/90yTrKRD/homeigo-GR.png"
             alt="HomeIGo logo" />
         </Logo>
       </LogoLink>
