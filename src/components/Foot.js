@@ -1,4 +1,4 @@
-// Import modules
+// Importing the modules
 import React from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
@@ -64,7 +64,6 @@ export const Footer = () => {
 };
 
 // Styling
-
 const Logo = styled.div`
   @media (max-width: 768px) {
     align-self: flex-start;
