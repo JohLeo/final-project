@@ -10,7 +10,7 @@ import { NotFound } from 'components/NotFound';
 import { Contact } from 'components/Contact';
 import { PrivacyPolicy } from 'components/PrivacyPolicy';
 import { PropertyObject } from 'components/Objects/PropertyObject';
-import menu from 'reducers/menu';
+import menu from 'components/reducers/menu';
 import { Footer } from './components/Foot';
 import { StartPage } from './components/StartPage';
 

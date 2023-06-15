@@ -14,12 +14,11 @@ export const StyledMenu = styled.nav`
   transition: transform 0.3s ease-in-out;
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
   overflow: hidden;
-  
+
   @media (max-width: 768px) {
     width: 100%;
     height: 100vh;
     padding: 0 0 0 2rem;
-    
 
     a {
       text-align: center;
@@ -27,9 +26,9 @@ export const StyledMenu = styled.nav`
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
-    width: 40%; 
+    width: 40%;
     height: 100vh;
-    
+
     a {
       text-align: center;
     }
@@ -44,7 +43,7 @@ export const StyledMenu = styled.nav`
     color: var(--text);
     text-decoration: none;
     transition: color 0.3s linear;
-    
+
     @media (max-width: 768px) {
       font-size: 1.5rem;
       text-align: center;
@@ -55,8 +54,12 @@ export const StyledMenu = styled.nav`
       text-align: center;
     }
 
+    &.black-link {
+      color: black;
+    }
+
     &:hover {
-      color: #989898};
+      color: #989898;
     }
   }
 `;
