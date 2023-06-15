@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useLocation } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Burger from './Burger/Burger';
 import Menu from './Menu/Menu';
@@ -13,11 +13,11 @@ export const Nav = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === '/properties/:id') {
-      dispatch({ type: 'menu/setTextColor', payload: 'black' });
-    } else {
-      dispatch({ type: 'menu/setTextColor', payload: 'white' });
-    }
+    const isBlackText = location.pathname.includes('/contact')
+      || location.pathname.includes('/forsale')
+      || location.pathname.includes('/properties');
+
+    dispatch({ type: 'menu/setTextColor', payload: isBlackText ? 'black' : 'white' });
   }, [location, dispatch]);
 
   return (
@@ -28,13 +28,37 @@ export const Nav = () => {
         </LogoLink>
         <Links textColor={textColor}>
           <li>
-            <Link to="/forsale">for sale</Link>
+            <Link
+              to="/forsale"
+              className={
+                location.pathname.includes('/forsale')
+                || location.pathname.includes('/contact')
+                || location.pathname.includes('/properties')
+                  ? 'black-link'
+                  : ''
+              }>
+              for sale
+            </Link>
           </li>
           <li>
-            <Link to="/aboutus">about</Link>
+            <Link
+              to="/aboutus"
+              className={location.pathname.includes('/aboutus') ? 'black-link' : ''}>
+              about
+            </Link>
           </li>
           <li>
-            <Link to="/contact">contact</Link>
+            <Link
+              to="/contact"
+              className={
+                location.pathname.includes('/forsale')
+                || location.pathname.includes('/contact')
+                || location.pathname.includes('/properties')
+                  ? 'black-link'
+                  : ''
+              }>
+              contact
+            </Link>
           </li>
         </Links>
         <div>
@@ -85,6 +109,13 @@ const Links = styled.ul`
       font-size: 18px;
       font-weight: 300;
       text-transform: uppercase;
+
+      &.black-link {
+        color: black;
+      }
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
   }
 `;

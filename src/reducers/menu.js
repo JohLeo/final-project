@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const menu = createSlice({
+const menu = createSlice({
   name: 'menu',
   initialState: {
     textColor: ''
@@ -11,3 +11,6 @@ export const menu = createSlice({
     }
   }
 });
+
+export const { setTextColor } = menu.actions
+export default menu
