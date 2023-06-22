@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading';
-import { SearchContainer, LocationImg, EstateInfo, PropertyCard } from '../lib/Listings'
+import { SearchContainer, LocationImg, EstateInfo, PropertyCard, ListingH1, TopSec } from '../lib/Listings'
 
 // Make const of API.
 const API = 'https://final-project-backend-4l5tpsxxuq-ew.a.run.app/properties';
@@ -28,10 +28,14 @@ export const ForSale = () => {
       {propertyData.length === 0 ? (
         <Loading />
       ) : (
+
         <SearchContainer>
+          <TopSec>
+            <ListingH1>All properties available</ListingH1>
+          </TopSec>
+
           {propertyData.map((item, index) => (
             <React.Fragment key={item.id}>
-
               <PropertyCard>
                 <StyledLink to={`/properties/${item._id}`}>
 
@@ -55,6 +59,7 @@ export const ForSale = () => {
             </React.Fragment>
           ))}
         </SearchContainer>
+
       )}
     </>
   );
