@@ -77,7 +77,8 @@ export const Search = () => {
             street: result.address.street,
             streetNumber: result.address.streetNumber
           },
-          mainImg: result.mainImg
+          mainImg: result.mainImg,
+          roomNo: result.roomNo
         }));
         setSearchResults(modifiedData);
         setSearchError('');
@@ -111,6 +112,7 @@ export const Search = () => {
               street: result.address.street,
               streetNumber: result.address.streetNumber
             },
+            roomNo: result.roomNo,
             mainImg: result.mainImg
           }));
 

@@ -19,9 +19,14 @@ export const Houses = () => {
     fetch(API)
       .then((res) => res.json())
       .then((responseData) => {
-        setPropertyData(responseData);
-        setTimeout(() => setIsLoading(false), 3000);
-        console.log(responseData); // CONSOLE LOGGING THE JSON - WE CAN REMOVE THIS BEFORE DEPLOY
+        // Filter the response data to only include apartments
+        const filteredData = responseData.filter((item) => item.category.toLowerCase() === 'house');
+        setPropertyData(filteredData);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        setIsLoading(false);
       });
   }, []);
 
