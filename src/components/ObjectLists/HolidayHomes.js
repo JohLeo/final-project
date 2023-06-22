@@ -19,8 +19,14 @@ export const HolidayHomes = () => {
     fetch(API)
       .then((res) => res.json())
       .then((responseData) => {
-        setPropertyData(responseData);
-        setTimeout(() => setIsLoading(false), 3000);
+        // Filter the response data to only include apartments
+        const filteredData = responseData.filter((item) => item.category.toLowerCase() === 'vacation home');
+        setPropertyData(filteredData);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        setIsLoading(false);
       });
   }, []);
 

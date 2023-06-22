@@ -42,7 +42,7 @@ export const AboutUs = () => {
         every step of the way.
         Begin your journey towards finding your dream home today. <br /> <br />
 
-        Please note that the properties showcased by [Company Name] are for
+        Please note that the properties showcased by Homeigo are for
         illustrative purposes only. Contact us to explore the real estate options
         available to you.
         </UsText>
