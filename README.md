@@ -1,4 +1,4 @@
-Project Homeigo - https://superb-alfajores-2745c6.netlify.app/
+Project Homeigo - https://melodic-daffodil-115469.netlify.app
 
 🏁 Goals:
 
@@ -35,5 +35,5 @@ If we had more time, we would have implemented an authenticator, where the user 
 HTML - CSS - React - Redux - MongoDB - MongoDB Atlas - POSTMAN - Google Cloud - Figma
 
 View it live
-Fontend: https://superb-alfajores-2745c6.netlify.app/
+Fontend: https://melodic-daffodil-115469.netlify.app
 Backend: https://final-project-backend-4l5tpsxxuq-ew.a.run.app/
